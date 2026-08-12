@@ -1,0 +1,5984 @@
+{
+  "date": "2026-07-23",
+  "scraped_at": "2026-07-22T18:21:08.747313-07:00",
+  "locations": [
+    {
+      "slug": "Clark_Kerr_Campus",
+      "name": "Clark Kerr",
+      "status": "Now Closed",
+      "hours": [
+        "7:30 a.m. - 10:00 a.m.",
+        "11:00 a.m. - 3:00 p.m.",
+        "4:30 p.m. - 9:00 p.m."
+      ],
+      "serve_date": "Thu, Jul 23",
+      "meals": [
+        {
+          "period": "Summer - Breakfast",
+          "categories": [
+            {
+              "name": "Breakfast",
+              "items": [
+                {
+                  "id": "556",
+                  "menu_id": "333",
+                  "name": "Scrambled Eggs",
+                  "tags": [
+                    "egg",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "981",
+                  "menu_id": "333",
+                  "name": "Cheddar Eggs Scramble",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "505",
+                  "menu_id": "333",
+                  "name": "Pork Sausage Link",
+                  "tags": [
+                    "pork"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1277",
+                  "menu_id": "333",
+                  "name": "Sweet Potato Tater Tots",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "509",
+                  "menu_id": "333",
+                  "name": "Vegan Italian \"Sausage\" with Peppers and Onions",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "577",
+                  "menu_id": "333",
+                  "name": "Roasted Red Pepper and Carrots",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1062",
+                  "menu_id": "333",
+                  "name": "Himalayan Red Rice",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Griddle/Grill",
+              "items": [
+                {
+                  "id": "1634",
+                  "menu_id": "333",
+                  "name": "French Toast Kosher",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Bread & Pastries",
+              "items": [
+                {
+                  "id": "1527",
+                  "menu_id": "333",
+                  "name": "Plain Bagels",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegan-option",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1530",
+                  "menu_id": "333",
+                  "name": "Whole Wheat Bagels",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegan-option",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1526",
+                  "menu_id": "333",
+                  "name": "Everything Bagels",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "sesame",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "sesame",
+                    "vegan-option",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1525",
+                  "menu_id": "333",
+                  "name": "Cinnamon Raisin Bagels",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegan-option",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1532",
+                  "menu_id": "333",
+                  "name": "Sliced Buttermilk Bread",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1534",
+                  "menu_id": "333",
+                  "name": "Sliced Whole Wheat Bread",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1533",
+                  "menu_id": "333",
+                  "name": "Sliced Sourdough Bread",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "wheat",
+                    "gluten",
+                    "vegan-option",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1544",
+                  "menu_id": "333",
+                  "name": "Original English Muffin",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "457",
+                  "menu_id": "333",
+                  "name": "Mini Butter Croissant",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "gluten",
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "458",
+                  "menu_id": "333",
+                  "name": "Mini Assorted Danish",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "tree-nuts",
+                    "wheat",
+                    "gluten",
+                    "milk",
+                    "egg",
+                    "tree-nuts",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1527",
+                  "menu_id": "333",
+                  "name": "Plain Bagels",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegan-option",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1530",
+                  "menu_id": "333",
+                  "name": "Whole Wheat Bagels",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegan-option",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1526",
+                  "menu_id": "333",
+                  "name": "Everything Bagels",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "sesame",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "sesame",
+                    "vegan-option",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1525",
+                  "menu_id": "333",
+                  "name": "Cinnamon Raisin Bagels",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegan-option",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1532",
+                  "menu_id": "333",
+                  "name": "Sliced Buttermilk Bread",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1534",
+                  "menu_id": "333",
+                  "name": "Sliced Whole Wheat Bread",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1533",
+                  "menu_id": "333",
+                  "name": "Sliced Sourdough Bread",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "wheat",
+                    "gluten",
+                    "vegan-option",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1544",
+                  "menu_id": "333",
+                  "name": "Original English Muffin",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "457",
+                  "menu_id": "333",
+                  "name": "Mini Butter Croissant",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "gluten",
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "458",
+                  "menu_id": "333",
+                  "name": "Mini Assorted Danish",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "tree-nuts",
+                    "wheat",
+                    "gluten",
+                    "milk",
+                    "egg",
+                    "tree-nuts",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Bread Spreads",
+              "items": [
+                {
+                  "id": "1680",
+                  "menu_id": "333",
+                  "name": "Vegan Butter",
+                  "tags": [
+                    "soybeans",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "416",
+                  "menu_id": "333",
+                  "name": "Clarified Butter",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1692",
+                  "menu_id": "333",
+                  "name": "Whipped Cream Cheese",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "3051",
+                  "menu_id": "333",
+                  "name": "Spread Butter Sunflower",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3009",
+                  "menu_id": "333",
+                  "name": "Topping Preserved Strawberry Sliced",
+                  "tags": [
+                    "vegan-option",
+                    "halal",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Cereal/ Hot Grain",
+              "items": [
+                {
+                  "id": "737",
+                  "menu_id": "333",
+                  "name": "Oatmeal",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Cereal/Hot Grain Toppings",
+              "items": [
+                {
+                  "id": "1627",
+                  "menu_id": "333",
+                  "name": "Chia Seeds",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2408",
+                  "menu_id": "333",
+                  "name": "Raisins",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2407",
+                  "menu_id": "333",
+                  "name": "Dried Cranberry",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Yogurt/Dairy",
+              "items": [
+                {
+                  "id": "1516",
+                  "menu_id": "333",
+                  "name": "Non Fat Plain Greek Yogurt",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1518",
+                  "menu_id": "333",
+                  "name": "Low Fat Peach Yogurt",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1520",
+                  "menu_id": "333",
+                  "name": "Low Fat Strawberry Yogurt",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1517",
+                  "menu_id": "333",
+                  "name": "Low Fat Vanilla Greek Yogurt",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                }
+              ]
+            },
+            {
+              "name": "Yogurt Toppings",
+              "items": [
+                {
+                  "id": "1628",
+                  "menu_id": "333",
+                  "name": "Gluten Free Granola",
+                  "tags": [
+                    "alcohol",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1633",
+                  "menu_id": "333",
+                  "name": "Fruit Salad",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Fresh Fruit",
+              "items": [
+                {
+                  "id": "1574",
+                  "menu_id": "333",
+                  "name": "Banana",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1573",
+                  "menu_id": "333",
+                  "name": "Orange",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "period": "Summer - Lunch",
+          "categories": [
+            {
+              "name": "Center Plate",
+              "items": [
+                {
+                  "id": "1111",
+                  "menu_id": "330",
+                  "name": "Halal Baked Tandori Chicken Thigh",
+                  "tags": [
+                    "milk",
+                    "halal"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1186",
+                  "menu_id": "330",
+                  "name": "Baked Tandoori Tofu",
+                  "tags": [
+                    "soybeans",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1063",
+                  "menu_id": "330",
+                  "name": "Basmati Rice",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "573",
+                  "menu_id": "330",
+                  "name": "Tandoori Roasted Carrots and Mushrooms",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "524",
+                  "menu_id": "330",
+                  "name": "Garlic Naan",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Appetizers/Condiments",
+              "items": [
+                {
+                  "id": "748",
+                  "menu_id": "330",
+                  "name": "Fried Pakora",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1658",
+                  "menu_id": "330",
+                  "name": "Cilantro Chutney",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1659",
+                  "menu_id": "330",
+                  "name": "Tamarind Chutney",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1660",
+                  "menu_id": "330",
+                  "name": "Tomato Chutney",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Griddle/Grill",
+              "items": [
+                {
+                  "id": "1057",
+                  "menu_id": "330",
+                  "name": "Beef Hot Dog",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "sesame"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1070",
+                  "menu_id": "330",
+                  "name": "Vegan Chicago Hot Dog",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "sesame",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "998",
+                  "menu_id": "330",
+                  "name": "Shoestring Fries",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Allergen Friendly",
+              "items": [
+                {
+                  "id": "1064",
+                  "menu_id": "330",
+                  "name": "Cilantro and Lime Rice",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "408",
+                  "menu_id": "330",
+                  "name": "Pinto Beans",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "546",
+                  "menu_id": "330",
+                  "name": "Sauteed Green Beans",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "799",
+                  "menu_id": "330",
+                  "name": "Halal Ground Beef",
+                  "tags": [
+                    "halal"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1571",
+                  "menu_id": "330",
+                  "name": "Halal Chicken Thigh",
+                  "tags": [
+                    "halal"
+                  ],
+                  "carbon_footprint": "medium"
+                }
+              ]
+            },
+            {
+              "name": "Pizza",
+              "items": [
+                {
+                  "id": "813",
+                  "menu_id": "330",
+                  "name": "Cheese Pizza",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "861",
+                  "menu_id": "330",
+                  "name": "Sausage and Onion Pizza",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "pork"
+                  ],
+                  "carbon_footprint": "medium"
+                }
+              ]
+            },
+            {
+              "name": "Pasta",
+              "items": [
+                {
+                  "id": "437",
+                  "menu_id": "330",
+                  "name": "Farfalle Pasta",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "769",
+                  "menu_id": "330",
+                  "name": "Gluten Free Penne Pasta",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1141",
+                  "menu_id": "330",
+                  "name": "Pesto Alfredo Sauce",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "735",
+                  "menu_id": "330",
+                  "name": "Beef Meatball Marinara",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "419",
+                  "menu_id": "330",
+                  "name": "Steamed Broccoli Cauliflower and Carrots",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "521",
+                  "menu_id": "330",
+                  "name": "Garlic Bread",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Soup",
+              "items": [
+                {
+                  "id": "518",
+                  "menu_id": "330",
+                  "name": "New England Clam Chowder",
+                  "tags": [
+                    "milk",
+                    "shellfish"
+                  ],
+                  "carbon_footprint": "high"
+                },
+                {
+                  "id": "1826",
+                  "menu_id": "330",
+                  "name": "Cauliflower Masala Soup",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Salad Bar",
+              "items": [
+                {
+                  "id": "2258",
+                  "menu_id": "330",
+                  "name": "Shredded Carrots",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1749",
+                  "menu_id": "330",
+                  "name": "Sliced Cucumber",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1667",
+                  "menu_id": "330",
+                  "name": "Romaine Lettuce",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1679",
+                  "menu_id": "330",
+                  "name": "Baby Spinach",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1802",
+                  "menu_id": "330",
+                  "name": "Base - Mixed Greens",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2269",
+                  "menu_id": "330",
+                  "name": "Grape Tomato",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2406",
+                  "menu_id": "330",
+                  "name": "Garlic Cheese Crouton",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2407",
+                  "menu_id": "330",
+                  "name": "Dried Cranberry",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2408",
+                  "menu_id": "330",
+                  "name": "Raisins",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1570",
+                  "menu_id": "330",
+                  "name": "Sunflower Seeds",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1549",
+                  "menu_id": "330",
+                  "name": "Pumpkin Seeds",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2409",
+                  "menu_id": "330",
+                  "name": "Olive Oil",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2411",
+                  "menu_id": "330",
+                  "name": "Balsamic Vinegar",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1662",
+                  "menu_id": "330",
+                  "name": "Ranch Dressing",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "soybeans",
+                    "vegetarian-option",
+                    "halal",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2413",
+                  "menu_id": "330",
+                  "name": "Caesar Dressing",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "fish",
+                    "soybeans"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2414",
+                  "menu_id": "330",
+                  "name": "1000 Island Dressing",
+                  "tags": [
+                    "egg",
+                    "vegetarian-option",
+                    "halal",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2417",
+                  "menu_id": "330",
+                  "name": "Italian Dressing",
+                  "tags": [
+                    "vegan-option",
+                    "halal",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1242",
+                  "menu_id": "330",
+                  "name": "Paprika Rosemary Tofu",
+                  "tags": [
+                    "soybeans",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "id": "1771",
+                  "menu_id": "330",
+                  "name": "Cinnamon Cereal Milk Cake",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1548",
+                  "menu_id": "330",
+                  "name": "Peach Pie",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1484",
+                  "menu_id": "330",
+                  "name": "Vegan Midnight Cookie",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "alcohol",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "period": "Summer - Dinner",
+          "categories": [
+            {
+              "name": "Center Plate",
+              "items": [
+                {
+                  "id": "1201",
+                  "menu_id": "331",
+                  "name": "Fried Breaded Cod with Tartar Sauce",
+                  "tags": [
+                    "egg",
+                    "fish",
+                    "wheat",
+                    "gluten"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "422",
+                  "menu_id": "331",
+                  "name": "Vegan Chicken Tenders",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "999",
+                  "menu_id": "331",
+                  "name": "Steak Fries",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "624",
+                  "menu_id": "331",
+                  "name": "Succotash Edamame Corn",
+                  "tags": [
+                    "soybeans",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Appetizers/Condiments",
+              "items": [
+                {
+                  "id": "1837",
+                  "menu_id": "331",
+                  "name": "Coleslaw",
+                  "tags": [
+                    "egg",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Griddle/Grill",
+              "items": [
+                {
+                  "id": "1057",
+                  "menu_id": "331",
+                  "name": "Beef Hot Dog",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "sesame"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1070",
+                  "menu_id": "331",
+                  "name": "Vegan Chicago Hot Dog",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "sesame",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "998",
+                  "menu_id": "331",
+                  "name": "Shoestring Fries",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Allergen Friendly",
+              "items": [
+                {
+                  "id": "1064",
+                  "menu_id": "331",
+                  "name": "Cilantro and Lime Rice",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "408",
+                  "menu_id": "331",
+                  "name": "Pinto Beans",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "546",
+                  "menu_id": "331",
+                  "name": "Sauteed Green Beans",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "799",
+                  "menu_id": "331",
+                  "name": "Halal Ground Beef",
+                  "tags": [
+                    "halal"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1571",
+                  "menu_id": "331",
+                  "name": "Halal Chicken Thigh",
+                  "tags": [
+                    "halal"
+                  ],
+                  "carbon_footprint": "medium"
+                }
+              ]
+            },
+            {
+              "name": "Pizza",
+              "items": [
+                {
+                  "id": "813",
+                  "menu_id": "331",
+                  "name": "Cheese Pizza",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "861",
+                  "menu_id": "331",
+                  "name": "Sausage and Onion Pizza",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "pork"
+                  ],
+                  "carbon_footprint": "medium"
+                }
+              ]
+            },
+            {
+              "name": "Pasta",
+              "items": [
+                {
+                  "id": "437",
+                  "menu_id": "331",
+                  "name": "Farfalle Pasta",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "769",
+                  "menu_id": "331",
+                  "name": "Gluten Free Penne Pasta",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1141",
+                  "menu_id": "331",
+                  "name": "Pesto Alfredo Sauce",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "735",
+                  "menu_id": "331",
+                  "name": "Beef Meatball Marinara",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "419",
+                  "menu_id": "331",
+                  "name": "Steamed Broccoli Cauliflower and Carrots",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "521",
+                  "menu_id": "331",
+                  "name": "Garlic Bread",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Soup",
+              "items": [
+                {
+                  "id": "518",
+                  "menu_id": "331",
+                  "name": "New England Clam Chowder",
+                  "tags": [
+                    "milk",
+                    "shellfish"
+                  ],
+                  "carbon_footprint": "high"
+                },
+                {
+                  "id": "1826",
+                  "menu_id": "331",
+                  "name": "Cauliflower Masala Soup",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Salad Bar",
+              "items": [
+                {
+                  "id": "2254",
+                  "menu_id": "331",
+                  "name": "Sliced Red Beets",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2263",
+                  "menu_id": "331",
+                  "name": "Matchstick Carrots",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1749",
+                  "menu_id": "331",
+                  "name": "Sliced Cucumber",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2267",
+                  "menu_id": "331",
+                  "name": "Red Radishes",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1667",
+                  "menu_id": "331",
+                  "name": "Romaine Lettuce",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1679",
+                  "menu_id": "331",
+                  "name": "Baby Spinach",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1802",
+                  "menu_id": "331",
+                  "name": "Base - Mixed Greens",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2269",
+                  "menu_id": "331",
+                  "name": "Grape Tomato",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2270",
+                  "menu_id": "331",
+                  "name": "Heirloom Tomato",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2406",
+                  "menu_id": "331",
+                  "name": "Garlic Cheese Crouton",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2407",
+                  "menu_id": "331",
+                  "name": "Dried Cranberry",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2408",
+                  "menu_id": "331",
+                  "name": "Raisins",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1570",
+                  "menu_id": "331",
+                  "name": "Sunflower Seeds",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1549",
+                  "menu_id": "331",
+                  "name": "Pumpkin Seeds",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2409",
+                  "menu_id": "331",
+                  "name": "Olive Oil",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2411",
+                  "menu_id": "331",
+                  "name": "Balsamic Vinegar",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1662",
+                  "menu_id": "331",
+                  "name": "Ranch Dressing",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "soybeans",
+                    "vegetarian-option",
+                    "halal",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2413",
+                  "menu_id": "331",
+                  "name": "Caesar Dressing",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "fish",
+                    "soybeans"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2414",
+                  "menu_id": "331",
+                  "name": "1000 Island Dressing",
+                  "tags": [
+                    "egg",
+                    "vegetarian-option",
+                    "halal",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2417",
+                  "menu_id": "331",
+                  "name": "Italian Dressing",
+                  "tags": [
+                    "vegan-option",
+                    "halal",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2416",
+                  "menu_id": "331",
+                  "name": "Poppy Seed Dressing",
+                  "tags": [
+                    "egg",
+                    "vegetarian-option",
+                    "halal",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "id": "1484",
+                  "menu_id": "331",
+                  "name": "Vegan Midnight Cookie",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "alcohol",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1548",
+                  "menu_id": "331",
+                  "name": "Peach Pie",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1771",
+                  "menu_id": "331",
+                  "name": "Cinnamon Cereal Milk Cake",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "Crossroads",
+      "name": "Crossroads",
+      "status": "Now Closed",
+      "hours": [
+        "7:00 a.m. - 10:00 a.m.",
+        "11:00 a.m. - 3:00 p.m.",
+        "4:30 p.m. - 9:00 p.m."
+      ],
+      "serve_date": "Thu, Jul 23",
+      "meals": [
+        {
+          "period": "Summer - Breakfast",
+          "categories": [
+            {
+              "name": "Sides",
+              "items": [
+                {
+                  "id": "1649",
+                  "menu_id": "278",
+                  "name": "Bacon Bits",
+                  "tags": [
+                    "pork"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1654",
+                  "menu_id": "278",
+                  "name": "Sharp Cheddar Cheese",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1652",
+                  "menu_id": "278",
+                  "name": "Shredded Vegan Cheese",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Bagel Station",
+              "items": [
+                {
+                  "id": "1525",
+                  "menu_id": "278",
+                  "name": "Cinnamon Raisin Bagels",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1526",
+                  "menu_id": "278",
+                  "name": "Everything Bagels",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "sesame",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1527",
+                  "menu_id": "278",
+                  "name": "Plain Bagels",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1530",
+                  "menu_id": "278",
+                  "name": "Whole Wheat Bagels",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "190",
+                  "menu_id": "278",
+                  "name": "Chive Cream Cheese",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "high"
+                },
+                {
+                  "id": "191",
+                  "menu_id": "278",
+                  "name": "Sun Dried Tomato Cream Cheese",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "high"
+                },
+                {
+                  "id": "1865",
+                  "menu_id": "278",
+                  "name": "Whipped Cream",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1682",
+                  "menu_id": "278",
+                  "name": "Capers",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1801",
+                  "menu_id": "278",
+                  "name": "Base - Arugula",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Bread & Pastries",
+              "items": [
+                {
+                  "id": "458",
+                  "menu_id": "278",
+                  "name": "Mini Assorted Danish",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "tree-nuts",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "457",
+                  "menu_id": "278",
+                  "name": "Mini Butter Croissant",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Breakfast Entree",
+              "items": [
+                {
+                  "id": "556",
+                  "menu_id": "278",
+                  "name": "Scrambled Eggs",
+                  "tags": [
+                    "egg",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "984",
+                  "menu_id": "278",
+                  "name": "Cajun Eggs Scramble",
+                  "tags": [
+                    "egg",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "590",
+                  "menu_id": "278",
+                  "name": "Grits",
+                  "tags": [],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "351",
+                  "menu_id": "278",
+                  "name": "Andouille Sausage",
+                  "tags": [
+                    "pork"
+                  ],
+                  "carbon_footprint": "high"
+                },
+                {
+                  "id": "528",
+                  "menu_id": "278",
+                  "name": "Bread Pudding with Bananas and Raisins",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "alcohol",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                }
+              ]
+            },
+            {
+              "name": "Cereal/Hot Grains",
+              "items": [
+                {
+                  "id": "737",
+                  "menu_id": "278",
+                  "name": "Oatmeal",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1034",
+                  "menu_id": "278",
+                  "name": "Brown Rice",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "672",
+                  "menu_id": "278",
+                  "name": "Jasmine Rice",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Plant Forward Breakfast",
+              "items": [
+                {
+                  "id": "1303",
+                  "menu_id": "278",
+                  "name": "Roasted Cajun-style Celery Tofu",
+                  "tags": [
+                    "soybeans",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "489",
+                  "menu_id": "278",
+                  "name": "Mung Bean Patty",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1023",
+                  "menu_id": "278",
+                  "name": "Sauteed Mushroom Vegetable Blend",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Yogurt Bar",
+              "items": [
+                {
+                  "id": "1516",
+                  "menu_id": "278",
+                  "name": "Non Fat Plain Greek Yogurt",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1518",
+                  "menu_id": "278",
+                  "name": "Low Fat Peach Yogurt",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1520",
+                  "menu_id": "278",
+                  "name": "Low Fat Strawberry Yogurt",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1517",
+                  "menu_id": "278",
+                  "name": "Low Fat Vanilla Greek Yogurt",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1519",
+                  "menu_id": "278",
+                  "name": "Low Fat Plain Yogurt",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3012",
+                  "menu_id": "278",
+                  "name": "Yogurt Dairy Free Vanilla VEGAN",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3008",
+                  "menu_id": "278",
+                  "name": "Yogurt Greek Strawberry Non Fat RTE",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1629",
+                  "menu_id": "278",
+                  "name": "Sliced Almond",
+                  "tags": [
+                    "tree-nuts",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1549",
+                  "menu_id": "278",
+                  "name": "Pumpkin Seeds",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1570",
+                  "menu_id": "278",
+                  "name": "Sunflower Seeds",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1627",
+                  "menu_id": "278",
+                  "name": "Chia Seeds",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2042",
+                  "menu_id": "278",
+                  "name": "Pineapple Chunks",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "period": "Summer - Lunch",
+          "categories": [
+            {
+              "name": "Grill",
+              "items": [
+                {
+                  "id": "873",
+                  "menu_id": "312",
+                  "name": "Bacon and Cheddar Beef Burger",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten",
+                    "pork"
+                  ],
+                  "carbon_footprint": "high"
+                },
+                {
+                  "id": "1052",
+                  "menu_id": "312",
+                  "name": "Halal Chicken Breast Sandwich",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "sesame",
+                    "halal"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1020",
+                  "menu_id": "312",
+                  "name": "Vegan Beyond Burger",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "sesame",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "998",
+                  "menu_id": "312",
+                  "name": "Shoestring Fries",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Lemongrass",
+              "items": [
+                {
+                  "id": "1454",
+                  "menu_id": "312",
+                  "name": "Thai BBQ Chicken",
+                  "tags": [
+                    "shellfish",
+                    "wheat",
+                    "soybeans",
+                    "gluten"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1430",
+                  "menu_id": "312",
+                  "name": "Eggplant Mapo Tofu",
+                  "tags": [
+                    "soybeans",
+                    "alcohol",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "672",
+                  "menu_id": "312",
+                  "name": "Jasmine Rice",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1415",
+                  "menu_id": "312",
+                  "name": "Honey Ginger Roasted Carrots",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "alcohol",
+                    "sesame",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1756",
+                  "menu_id": "312",
+                  "name": "Lemongrass Chicken Potsticker",
+                  "tags": [
+                    "fish",
+                    "wheat",
+                    "gluten"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Pizza",
+              "items": [
+                {
+                  "id": "813",
+                  "menu_id": "312",
+                  "name": "Cheese Pizza",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "840",
+                  "menu_id": "312",
+                  "name": "Greek Chicken Pizza",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten"
+                  ],
+                  "carbon_footprint": "medium"
+                }
+              ]
+            },
+            {
+              "name": "Plant Forward",
+              "items": [
+                {
+                  "id": "1319",
+                  "menu_id": "312",
+                  "name": "Moroccan Freekeh Chickpea",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "766",
+                  "menu_id": "312",
+                  "name": "Spiced Couscous",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "939",
+                  "menu_id": "312",
+                  "name": "Sauteed Zucchini & Onion Sauteed",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Soup",
+              "items": [
+                {
+                  "id": "513",
+                  "menu_id": "312",
+                  "name": "Chicken Tikka Masala Soup",
+                  "tags": [
+                    "milk"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "516",
+                  "menu_id": "312",
+                  "name": "Bean Chili",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Allergen Friendly - Lunch",
+              "items": [
+                {
+                  "id": "1332",
+                  "menu_id": "312",
+                  "name": "Halal Rosemary Roasted Chicken Thigh",
+                  "tags": [
+                    "halal"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1286",
+                  "menu_id": "312",
+                  "name": "Vegan Wellness Stew",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "484",
+                  "menu_id": "312",
+                  "name": "Brussels Sprouts",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1025",
+                  "menu_id": "312",
+                  "name": "Quinoa",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1681",
+                  "menu_id": "312",
+                  "name": "Nutritional Yeast",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1341",
+                  "menu_id": "312",
+                  "name": "Baked Corn Tortilla Strips",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1870",
+                  "menu_id": "312",
+                  "name": "Roasted Pumpkin Seeds",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "id": "1568",
+                  "menu_id": "312",
+                  "name": "Custard Pie",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "428",
+                  "menu_id": "312",
+                  "name": "Vegan Chocolate Chip Cookie",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "alcohol",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1504",
+                  "menu_id": "312",
+                  "name": "Lemon Cream Shortcake",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Sides",
+              "items": [
+                {
+                  "id": "742",
+                  "menu_id": "312",
+                  "name": "Topping - Pickled Onions",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1299",
+                  "menu_id": "312",
+                  "name": "Zhoug Sauce",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1665",
+                  "menu_id": "312",
+                  "name": "Mint",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1516",
+                  "menu_id": "312",
+                  "name": "Non Fat Plain Greek Yogurt",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1683",
+                  "menu_id": "312",
+                  "name": "Pita Bread",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Entree",
+              "items": [
+                {
+                  "id": "792",
+                  "menu_id": "312",
+                  "name": "Halal North African-style Roasted Chicken",
+                  "tags": [
+                    "halal"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "772",
+                  "menu_id": "312",
+                  "name": "Jeweled Basmati Rice",
+                  "tags": [
+                    "soybeans",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1028",
+                  "menu_id": "312",
+                  "name": "Moroccan Vegetable Blend",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Salad Bar",
+              "items": [
+                {
+                  "id": "1802",
+                  "menu_id": "312",
+                  "name": "Base - Mixed Greens",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1679",
+                  "menu_id": "312",
+                  "name": "Baby Spinach",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1667",
+                  "menu_id": "312",
+                  "name": "Romaine Lettuce",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2254",
+                  "menu_id": "312",
+                  "name": "Sliced Red Beets",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2256",
+                  "menu_id": "312",
+                  "name": "Red Beets",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2258",
+                  "menu_id": "312",
+                  "name": "Shredded Carrots",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2259",
+                  "menu_id": "312",
+                  "name": "Shredded Rainbow Carrots",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1749",
+                  "menu_id": "312",
+                  "name": "Sliced Cucumber",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2266",
+                  "menu_id": "312",
+                  "name": "Diced Cucumbers",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2268",
+                  "menu_id": "312",
+                  "name": "Cherry Tomatoes",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2269",
+                  "menu_id": "312",
+                  "name": "Grape Tomato",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1673",
+                  "menu_id": "312",
+                  "name": "Sliced Radish",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "386",
+                  "menu_id": "312",
+                  "name": "Cooked Quinoa",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1242",
+                  "menu_id": "312",
+                  "name": "Paprika Rosemary Tofu",
+                  "tags": [
+                    "soybeans",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2406",
+                  "menu_id": "312",
+                  "name": "Garlic Cheese Crouton",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2407",
+                  "menu_id": "312",
+                  "name": "Dried Cranberry",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2408",
+                  "menu_id": "312",
+                  "name": "Raisins",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1570",
+                  "menu_id": "312",
+                  "name": "Sunflower Seeds",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1549",
+                  "menu_id": "312",
+                  "name": "Pumpkin Seeds",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1629",
+                  "menu_id": "312",
+                  "name": "Sliced Almond",
+                  "tags": [
+                    "tree-nuts",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2409",
+                  "menu_id": "312",
+                  "name": "Olive Oil",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2411",
+                  "menu_id": "312",
+                  "name": "Balsamic Vinegar",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2412",
+                  "menu_id": "312",
+                  "name": "Apple Cider Vinegar",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1662",
+                  "menu_id": "312",
+                  "name": "Ranch Dressing",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "soybeans",
+                    "vegetarian-option",
+                    "halal",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2413",
+                  "menu_id": "312",
+                  "name": "Caesar Dressing",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "fish",
+                    "soybeans"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2410",
+                  "menu_id": "312",
+                  "name": "Balsamic Vinaigrette",
+                  "tags": [
+                    "vegan-option",
+                    "halal"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2414",
+                  "menu_id": "312",
+                  "name": "1000 Island Dressing",
+                  "tags": [
+                    "egg",
+                    "vegetarian-option",
+                    "halal",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2415",
+                  "menu_id": "312",
+                  "name": "Asian Sesame Dressing",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "sesame",
+                    "vegan-option",
+                    "halal",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1661",
+                  "menu_id": "312",
+                  "name": "Blue Cheese Dressing",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "sesame",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2417",
+                  "menu_id": "312",
+                  "name": "Italian Dressing",
+                  "tags": [
+                    "vegan-option",
+                    "halal",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2416",
+                  "menu_id": "312",
+                  "name": "Poppy Seed Dressing",
+                  "tags": [
+                    "egg",
+                    "vegetarian-option",
+                    "halal",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3047",
+                  "menu_id": "312",
+                  "name": "Blood Orange Vinaigrette",
+                  "tags": [
+                    "vegan-option",
+                    "halal"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Deli Bar",
+              "items": [
+                {
+                  "id": "3151",
+                  "menu_id": "312",
+                  "name": "Egg Salad",
+                  "tags": [
+                    "egg",
+                    "vegetarian-option",
+                    "halal"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "279",
+                  "menu_id": "312",
+                  "name": "Chicken Salad",
+                  "tags": [
+                    "egg"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3150",
+                  "menu_id": "312",
+                  "name": "Tuna Salad",
+                  "tags": [
+                    "egg",
+                    "fish",
+                    "halal"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1653",
+                  "menu_id": "312",
+                  "name": "Sliced Vegan Cheese",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3015",
+                  "menu_id": "312",
+                  "name": "Sliced Pickle",
+                  "tags": [
+                    "vegan-option",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1669",
+                  "menu_id": "312",
+                  "name": "Stuffed Green Olive",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2989",
+                  "menu_id": "312",
+                  "name": "Hummus",
+                  "tags": [
+                    "soybeans",
+                    "sesame",
+                    "vegan-option",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1631",
+                  "menu_id": "312",
+                  "name": "Peach",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1632",
+                  "menu_id": "312",
+                  "name": "Nectarine",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "period": "Summer - Dinner",
+          "categories": [
+            {
+              "name": "Lemongrass",
+              "items": [
+                {
+                  "id": "1454",
+                  "menu_id": "281",
+                  "name": "Thai BBQ Chicken",
+                  "tags": [
+                    "shellfish",
+                    "wheat",
+                    "soybeans",
+                    "gluten"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1430",
+                  "menu_id": "281",
+                  "name": "Eggplant Mapo Tofu",
+                  "tags": [
+                    "soybeans",
+                    "alcohol",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "672",
+                  "menu_id": "281",
+                  "name": "Jasmine Rice",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1415",
+                  "menu_id": "281",
+                  "name": "Honey Ginger Roasted Carrots",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "alcohol",
+                    "sesame",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1756",
+                  "menu_id": "281",
+                  "name": "Lemongrass Chicken Potsticker",
+                  "tags": [
+                    "fish",
+                    "wheat",
+                    "gluten"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Pasta",
+              "items": [
+                {
+                  "id": "924",
+                  "menu_id": "281",
+                  "name": "Creamy Chipotle Chicken Pasta",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "899",
+                  "menu_id": "281",
+                  "name": "Tomato Chipotle Penne Pasta",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1159",
+                  "menu_id": "281",
+                  "name": "Caribbean Vegetable Blend",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "521",
+                  "menu_id": "281",
+                  "name": "Garlic Bread",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Pizza",
+              "items": [
+                {
+                  "id": "813",
+                  "menu_id": "281",
+                  "name": "Cheese Pizza",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "840",
+                  "menu_id": "281",
+                  "name": "Greek Chicken Pizza",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten"
+                  ],
+                  "carbon_footprint": "medium"
+                }
+              ]
+            },
+            {
+              "name": "Plant Forward",
+              "items": [
+                {
+                  "id": "1144",
+                  "menu_id": "281",
+                  "name": "Vegan Celebration \"Roast\"",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1055",
+                  "menu_id": "281",
+                  "name": "Carmamelized Onion Pilaf Rice",
+                  "tags": [
+                    "soybeans",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1196",
+                  "menu_id": "281",
+                  "name": "Sauteed Spinach",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1137",
+                  "menu_id": "281",
+                  "name": "Roasted Edamame and Squash",
+                  "tags": [
+                    "soybeans",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Soup",
+              "items": [
+                {
+                  "id": "513",
+                  "menu_id": "281",
+                  "name": "Chicken Tikka Masala Soup",
+                  "tags": [
+                    "milk"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "516",
+                  "menu_id": "281",
+                  "name": "Bean Chili",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "id": "1568",
+                  "menu_id": "281",
+                  "name": "Custard Pie",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "428",
+                  "menu_id": "281",
+                  "name": "Vegan Chocolate Chip Cookie",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "alcohol",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1504",
+                  "menu_id": "281",
+                  "name": "Lemon Cream Shortcake",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Allergen Friendly - Dinner",
+              "items": [
+                {
+                  "id": "1332",
+                  "menu_id": "281",
+                  "name": "Halal Rosemary Roasted Chicken Thigh",
+                  "tags": [
+                    "halal"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1286",
+                  "menu_id": "281",
+                  "name": "Vegan Wellness Stew",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "484",
+                  "menu_id": "281",
+                  "name": "Brussels Sprouts",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1025",
+                  "menu_id": "281",
+                  "name": "Quinoa",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1681",
+                  "menu_id": "281",
+                  "name": "Nutritional Yeast",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1341",
+                  "menu_id": "281",
+                  "name": "Baked Corn Tortilla Strips",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1870",
+                  "menu_id": "281",
+                  "name": "Roasted Pumpkin Seeds",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Entree",
+              "items": [
+                {
+                  "id": "942",
+                  "menu_id": "281",
+                  "name": "Citrus Glaze Pork",
+                  "tags": [
+                    "pork"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1284",
+                  "menu_id": "281",
+                  "name": "Baked Sweet Potato",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "569",
+                  "menu_id": "281",
+                  "name": "Roasted Carrot with Cumin",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Salad Bar",
+              "items": [
+                {
+                  "id": "1802",
+                  "menu_id": "281",
+                  "name": "Base - Mixed Greens",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1679",
+                  "menu_id": "281",
+                  "name": "Baby Spinach",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1667",
+                  "menu_id": "281",
+                  "name": "Romaine Lettuce",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2254",
+                  "menu_id": "281",
+                  "name": "Sliced Red Beets",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2256",
+                  "menu_id": "281",
+                  "name": "Red Beets",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2258",
+                  "menu_id": "281",
+                  "name": "Shredded Carrots",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2259",
+                  "menu_id": "281",
+                  "name": "Shredded Rainbow Carrots",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1749",
+                  "menu_id": "281",
+                  "name": "Sliced Cucumber",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2266",
+                  "menu_id": "281",
+                  "name": "Diced Cucumbers",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2268",
+                  "menu_id": "281",
+                  "name": "Cherry Tomatoes",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2269",
+                  "menu_id": "281",
+                  "name": "Grape Tomato",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1673",
+                  "menu_id": "281",
+                  "name": "Sliced Radish",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "386",
+                  "menu_id": "281",
+                  "name": "Cooked Quinoa",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1242",
+                  "menu_id": "281",
+                  "name": "Paprika Rosemary Tofu",
+                  "tags": [
+                    "soybeans",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2406",
+                  "menu_id": "281",
+                  "name": "Garlic Cheese Crouton",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2407",
+                  "menu_id": "281",
+                  "name": "Dried Cranberry",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2408",
+                  "menu_id": "281",
+                  "name": "Raisins",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1570",
+                  "menu_id": "281",
+                  "name": "Sunflower Seeds",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1549",
+                  "menu_id": "281",
+                  "name": "Pumpkin Seeds",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1629",
+                  "menu_id": "281",
+                  "name": "Sliced Almond",
+                  "tags": [
+                    "tree-nuts",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2409",
+                  "menu_id": "281",
+                  "name": "Olive Oil",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2411",
+                  "menu_id": "281",
+                  "name": "Balsamic Vinegar",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2412",
+                  "menu_id": "281",
+                  "name": "Apple Cider Vinegar",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1662",
+                  "menu_id": "281",
+                  "name": "Ranch Dressing",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "soybeans",
+                    "vegetarian-option",
+                    "halal",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2413",
+                  "menu_id": "281",
+                  "name": "Caesar Dressing",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "fish",
+                    "soybeans"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2410",
+                  "menu_id": "281",
+                  "name": "Balsamic Vinaigrette",
+                  "tags": [
+                    "vegan-option",
+                    "halal"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2414",
+                  "menu_id": "281",
+                  "name": "1000 Island Dressing",
+                  "tags": [
+                    "egg",
+                    "vegetarian-option",
+                    "halal",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2415",
+                  "menu_id": "281",
+                  "name": "Asian Sesame Dressing",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "sesame",
+                    "vegan-option",
+                    "halal",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1661",
+                  "menu_id": "281",
+                  "name": "Blue Cheese Dressing",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "sesame",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2417",
+                  "menu_id": "281",
+                  "name": "Italian Dressing",
+                  "tags": [
+                    "vegan-option",
+                    "halal",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2416",
+                  "menu_id": "281",
+                  "name": "Poppy Seed Dressing",
+                  "tags": [
+                    "egg",
+                    "vegetarian-option",
+                    "halal",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3047",
+                  "menu_id": "281",
+                  "name": "Blood Orange Vinaigrette",
+                  "tags": [
+                    "vegan-option",
+                    "halal"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Deli Bar",
+              "items": [
+                {
+                  "id": "3151",
+                  "menu_id": "281",
+                  "name": "Egg Salad",
+                  "tags": [
+                    "egg",
+                    "vegetarian-option",
+                    "halal"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "279",
+                  "menu_id": "281",
+                  "name": "Chicken Salad",
+                  "tags": [
+                    "egg"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3150",
+                  "menu_id": "281",
+                  "name": "Tuna Salad",
+                  "tags": [
+                    "egg",
+                    "fish",
+                    "halal"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1653",
+                  "menu_id": "281",
+                  "name": "Sliced Vegan Cheese",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3015",
+                  "menu_id": "281",
+                  "name": "Sliced Pickle",
+                  "tags": [
+                    "vegan-option",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1669",
+                  "menu_id": "281",
+                  "name": "Stuffed Green Olive",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2989",
+                  "menu_id": "281",
+                  "name": "Hummus",
+                  "tags": [
+                    "soybeans",
+                    "sesame",
+                    "vegan-option",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1631",
+                  "menu_id": "281",
+                  "name": "Peach",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1632",
+                  "menu_id": "281",
+                  "name": "Nectarine",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "Foothill",
+      "name": "Foothill",
+      "status": "Now Closed",
+      "hours": [
+        "7:00 a.m. - 10:00 a.m.",
+        "11:00 a.m. - 3:00 p.m.",
+        "4:30 p.m. - 9:00 p.m."
+      ],
+      "serve_date": "Thu, Jul 23",
+      "meals": [
+        {
+          "period": "Summer - Breakfast",
+          "categories": [
+            {
+              "name": "Pastry",
+              "items": [
+                {
+                  "id": "1543",
+                  "menu_id": "332",
+                  "name": "Assorted Mini Donuts",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Bagel Bar",
+              "items": [
+                {
+                  "id": "1527",
+                  "menu_id": "332",
+                  "name": "Plain Bagels",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1526",
+                  "menu_id": "332",
+                  "name": "Everything Bagels",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "sesame",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1525",
+                  "menu_id": "332",
+                  "name": "Cinnamon Raisin Bagels",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1692",
+                  "menu_id": "332",
+                  "name": "Whipped Cream Cheese",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "191",
+                  "menu_id": "332",
+                  "name": "Sun Dried Tomato Cream Cheese",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "high"
+                },
+                {
+                  "id": "1682",
+                  "menu_id": "332",
+                  "name": "Capers",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1748",
+                  "menu_id": "332",
+                  "name": "Sliced Red Onion",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3045",
+                  "menu_id": "332",
+                  "name": "Tomato Sliced",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3110",
+                  "menu_id": "332",
+                  "name": "Strawberry Jelly",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3052",
+                  "menu_id": "332",
+                  "name": "Butter Unsalted HALAL",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option",
+                    "halal"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1637",
+                  "menu_id": "332",
+                  "name": "Sunflower Butter",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Yogurt Bar",
+              "items": [
+                {
+                  "id": "1516",
+                  "menu_id": "332",
+                  "name": "Non Fat Plain Greek Yogurt",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1517",
+                  "menu_id": "332",
+                  "name": "Low Fat Vanilla Greek Yogurt",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1520",
+                  "menu_id": "332",
+                  "name": "Low Fat Strawberry Yogurt",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1627",
+                  "menu_id": "332",
+                  "name": "Chia Seeds",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1628",
+                  "menu_id": "332",
+                  "name": "Gluten Free Granola",
+                  "tags": [
+                    "alcohol",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2408",
+                  "menu_id": "332",
+                  "name": "Raisins",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1549",
+                  "menu_id": "332",
+                  "name": "Pumpkin Seeds",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1629",
+                  "menu_id": "332",
+                  "name": "Sliced Almond",
+                  "tags": [
+                    "tree-nuts",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Cereal/Hot Grain",
+              "items": [
+                {
+                  "id": "737",
+                  "menu_id": "332",
+                  "name": "Oatmeal",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Chef's Table",
+              "items": [
+                {
+                  "id": "556",
+                  "menu_id": "332",
+                  "name": "Scrambled Eggs",
+                  "tags": [
+                    "egg",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "506",
+                  "menu_id": "332",
+                  "name": "Pork Sausage Patty",
+                  "tags": [
+                    "pork"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "502",
+                  "menu_id": "332",
+                  "name": "Vegan Breakfast \"Sausage\" Patty",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1034",
+                  "menu_id": "332",
+                  "name": "Brown Rice",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "750",
+                  "menu_id": "332",
+                  "name": "Pancakes",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "345",
+                  "menu_id": "332",
+                  "name": "Fajita Spice Blend",
+                  "tags": [],
+                  "carbon_footprint": "high"
+                },
+                {
+                  "id": "966",
+                  "menu_id": "332",
+                  "name": "Fried Tater Tots",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "period": "Summer - Lunch",
+          "categories": [
+            {
+              "name": "Deli Bar",
+              "items": [
+                {
+                  "id": "606",
+                  "menu_id": "337",
+                  "name": "Housemade Hummus",
+                  "tags": [
+                    "sesame",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "medium"
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "id": "429",
+                  "menu_id": "337",
+                  "name": "Vegan Lemon Sugar Cookies",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1538",
+                  "menu_id": "337",
+                  "name": "Chocolate Sheet Cake",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Soup",
+              "items": [
+                {
+                  "id": "519",
+                  "menu_id": "337",
+                  "name": "Southwestern Corn Chowder",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Chef's Table",
+              "items": [
+                {
+                  "id": "948",
+                  "menu_id": "337",
+                  "name": "Honey Mustard Pork",
+                  "tags": [
+                    "pork"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1214",
+                  "menu_id": "337",
+                  "name": "Vegan Mediterranean \"Chicken\" Strips",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1125",
+                  "menu_id": "337",
+                  "name": "Roasted Potatoes",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "151",
+                  "menu_id": "337",
+                  "name": "Steamed Broccoli",
+                  "tags": [
+                    "vegan-option",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1554",
+                  "menu_id": "337",
+                  "name": "Hawaiian Dinner Roll",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Iron &  Ember",
+              "items": [
+                {
+                  "id": "1012",
+                  "menu_id": "337",
+                  "name": "Halal Blue Sage Beef Burger",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten",
+                    "halal"
+                  ],
+                  "carbon_footprint": "high"
+                },
+                {
+                  "id": "1020",
+                  "menu_id": "337",
+                  "name": "Vegan Beyond Burger",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "sesame",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "994",
+                  "menu_id": "337",
+                  "name": "Regular Fries",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Fire & Flour",
+              "items": [
+                {
+                  "id": "813",
+                  "menu_id": "337",
+                  "name": "Cheese Pizza",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "853",
+                  "menu_id": "337",
+                  "name": "Pepperoni Pizza",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "pork"
+                  ],
+                  "carbon_footprint": "medium"
+                }
+              ]
+            },
+            {
+              "name": "Pure Plates",
+              "items": [
+                {
+                  "id": "799",
+                  "menu_id": "337",
+                  "name": "Halal Ground Beef",
+                  "tags": [
+                    "halal"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1349",
+                  "menu_id": "337",
+                  "name": "Housemade Vegan Cheese Sauce",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1557",
+                  "menu_id": "337",
+                  "name": "Yellow Tortilla Chip",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "108",
+                  "menu_id": "337",
+                  "name": "Seasoned Black Beans",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "151",
+                  "menu_id": "337",
+                  "name": "Steamed Broccoli",
+                  "tags": [
+                    "vegan-option",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1550",
+                  "menu_id": "337",
+                  "name": "Salsa Pico De Gallo",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1562",
+                  "menu_id": "337",
+                  "name": "Jalapeno Rings",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1664",
+                  "menu_id": "337",
+                  "name": "Cilantro",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "period": "Summer - Dinner",
+          "categories": [
+            {
+              "name": "Salad Bar",
+              "items": [
+                {
+                  "id": "1667",
+                  "menu_id": "336",
+                  "name": "Romaine Lettuce",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1802",
+                  "menu_id": "336",
+                  "name": "Base - Mixed Greens",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2255",
+                  "menu_id": "336",
+                  "name": "Gold Beets",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2258",
+                  "menu_id": "336",
+                  "name": "Shredded Carrots",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1749",
+                  "menu_id": "336",
+                  "name": "Sliced Cucumber",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2268",
+                  "menu_id": "336",
+                  "name": "Cherry Tomatoes",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1570",
+                  "menu_id": "336",
+                  "name": "Sunflower Seeds",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2406",
+                  "menu_id": "336",
+                  "name": "Garlic Cheese Crouton",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2409",
+                  "menu_id": "336",
+                  "name": "Olive Oil",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2410",
+                  "menu_id": "336",
+                  "name": "Balsamic Vinaigrette",
+                  "tags": [
+                    "vegan-option",
+                    "halal"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2413",
+                  "menu_id": "336",
+                  "name": "Caesar Dressing",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "fish",
+                    "soybeans"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1662",
+                  "menu_id": "336",
+                  "name": "Ranch Dressing",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "soybeans",
+                    "vegetarian-option",
+                    "halal",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1661",
+                  "menu_id": "336",
+                  "name": "Blue Cheese Dressing",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "sesame",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2414",
+                  "menu_id": "336",
+                  "name": "1000 Island Dressing",
+                  "tags": [
+                    "egg",
+                    "vegetarian-option",
+                    "halal",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Deli Bar",
+              "items": [
+                {
+                  "id": "3116",
+                  "menu_id": "336",
+                  "name": "Kosher Smoked Turkey",
+                  "tags": [
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "279",
+                  "menu_id": "336",
+                  "name": "Chicken Salad",
+                  "tags": [
+                    "egg"
+                  ],
+                  "carbon_footprint": "high"
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "id": "429",
+                  "menu_id": "336",
+                  "name": "Vegan Lemon Sugar Cookies",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1538",
+                  "menu_id": "336",
+                  "name": "Chocolate Sheet Cake",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Soup",
+              "items": [
+                {
+                  "id": "519",
+                  "menu_id": "336",
+                  "name": "Southwestern Corn Chowder",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "522",
+                  "menu_id": "336",
+                  "name": "Tomato Bisque Soup",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Chef's Table",
+              "items": [
+                {
+                  "id": "934",
+                  "menu_id": "336",
+                  "name": "Halal Chicken Thigh Fajitas",
+                  "tags": [
+                    "halal"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1305",
+                  "menu_id": "336",
+                  "name": "Vegan Tofu Siga Tibs Stew",
+                  "tags": [
+                    "soybeans",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1028",
+                  "menu_id": "336",
+                  "name": "Moroccan Vegetable Blend",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1056",
+                  "menu_id": "336",
+                  "name": "Lemon Rice Pilaf",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "525",
+                  "menu_id": "336",
+                  "name": "Naan Bread",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "vegan-option",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Iron & Ember",
+              "items": [
+                {
+                  "id": "784",
+                  "menu_id": "336",
+                  "name": "Grilled Cheese Sandwich",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1049",
+                  "menu_id": "336",
+                  "name": "Vegan Grilled \"Cheese\" Sandwich",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Fire & Flour",
+              "items": [
+                {
+                  "id": "914",
+                  "menu_id": "336",
+                  "name": "Salmon Fettucini Alfredo Pasta",
+                  "tags": [
+                    "milk",
+                    "fish",
+                    "wheat",
+                    "gluten"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "768",
+                  "menu_id": "336",
+                  "name": "Fettucini Alfredo Pasta",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "151",
+                  "menu_id": "336",
+                  "name": "Steamed Broccoli",
+                  "tags": [
+                    "vegan-option",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Pure Plates",
+              "items": [
+                {
+                  "id": "799",
+                  "menu_id": "336",
+                  "name": "Halal Ground Beef",
+                  "tags": [
+                    "halal"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1349",
+                  "menu_id": "336",
+                  "name": "Housemade Vegan Cheese Sauce",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1557",
+                  "menu_id": "336",
+                  "name": "Yellow Tortilla Chip",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "108",
+                  "menu_id": "336",
+                  "name": "Seasoned Black Beans",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "151",
+                  "menu_id": "336",
+                  "name": "Steamed Broccoli",
+                  "tags": [
+                    "vegan-option",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1550",
+                  "menu_id": "336",
+                  "name": "Salsa Pico De Gallo",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1562",
+                  "menu_id": "336",
+                  "name": "Jalapeno Rings",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1664",
+                  "menu_id": "336",
+                  "name": "Cilantro",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "Golden_Bear_Cafe",
+      "name": "The Golden Bear Café",
+      "status": "Now Closed",
+      "hours": [
+        "9:00 a.m. - 10:59 a.m.",
+        "11:00 a.m. - 6:00 p.m."
+      ],
+      "serve_date": "Thu, Jul 23",
+      "meals": [
+        {
+          "period": "Summer - Breakfast",
+          "categories": [
+            {
+              "name": "Mains",
+              "items": [
+                {
+                  "id": "487",
+                  "menu_id": "352",
+                  "name": "Breakfast Burrito with Ham",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "gluten",
+                    "pork"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1092",
+                  "menu_id": "352",
+                  "name": "Ham Egg and Cheese Croissant Sandwich",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "gluten",
+                    "pork"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1096",
+                  "menu_id": "352",
+                  "name": "Egg and Cheese Croissant Sandwich",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "486",
+                  "menu_id": "352",
+                  "name": "Breakfast Burrito",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "488",
+                  "menu_id": "352",
+                  "name": "Vegan Chorizo Just Egg Breakfast Burrito",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "medium"
+                }
+              ]
+            },
+            {
+              "name": "Sides",
+              "items": [
+                {
+                  "id": "602",
+                  "menu_id": "352",
+                  "name": "Hashbrown Patties",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1324",
+                  "menu_id": "352",
+                  "name": "Large Fruit Salad",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "period": "Summer - Lunch",
+          "categories": [
+            {
+              "name": "Grill",
+              "items": [
+                {
+                  "id": "874",
+                  "menu_id": "353",
+                  "name": "Beef and Cheddar Burger",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "soybeans",
+                    "gluten"
+                  ],
+                  "carbon_footprint": "high"
+                },
+                {
+                  "id": "1054",
+                  "menu_id": "353",
+                  "name": "Spicy Fried Chicken Sandwich",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "gluten"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1084",
+                  "menu_id": "353",
+                  "name": "Beef Cheesesteak Sandwich",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten"
+                  ],
+                  "carbon_footprint": "high"
+                },
+                {
+                  "id": "1154",
+                  "menu_id": "353",
+                  "name": "Salmon Sandwich",
+                  "tags": [
+                    "milk",
+                    "fish",
+                    "wheat",
+                    "gluten"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1019",
+                  "menu_id": "353",
+                  "name": "Vegan Beyond Burger",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "sesame",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "639",
+                  "menu_id": "353",
+                  "name": "Chicken Tenders and Fries",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "865",
+                  "menu_id": "353",
+                  "name": "Plant Based Tenders with Criss Cut Fries",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "medium"
+                }
+              ]
+            },
+            {
+              "name": "Fries",
+              "items": [
+                {
+                  "id": "695",
+                  "menu_id": "353",
+                  "name": "Loaded Chicken Buffalo Bacon and Cheddar Fries",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "pork"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "691",
+                  "menu_id": "353",
+                  "name": "Loaded Beef Bulgogi and Kim Chi Fries",
+                  "tags": [
+                    "egg",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "alcohol",
+                    "sesame"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "216",
+                  "menu_id": "353",
+                  "name": "Criss Cut Fries",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Bowls",
+              "items": [
+                {
+                  "id": "475",
+                  "menu_id": "353",
+                  "name": "Grain Bowl with Orange Poppy Dressing",
+                  "tags": [
+                    "egg",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1797",
+                  "menu_id": "353",
+                  "name": "Seared Salmon",
+                  "tags": [
+                    "fish"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "496",
+                  "menu_id": "353",
+                  "name": "Mapo Tofu Rice Bowl",
+                  "tags": [
+                    "soybeans",
+                    "alcohol",
+                    "sesame",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1793",
+                  "menu_id": "353",
+                  "name": "Grilled Chicken Strip",
+                  "tags": [],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "1796",
+                  "menu_id": "353",
+                  "name": "Mapo Tofu",
+                  "tags": [
+                    "soybeans",
+                    "alcohol",
+                    "sesame",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Salads",
+              "items": [
+                {
+                  "id": "646",
+                  "menu_id": "353",
+                  "name": "Buffalo Chicken Bacon and Ranch Salad",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "pork"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "722",
+                  "menu_id": "353",
+                  "name": "MIxed Greens Salad",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                }
+              ]
+            },
+            {
+              "name": "Sides",
+              "items": [
+                {
+                  "id": "1325",
+                  "menu_id": "353",
+                  "name": "Small Fruit Salad",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1324",
+                  "menu_id": "353",
+                  "name": "Large Fruit Salad",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "723",
+                  "menu_id": "353",
+                  "name": "Side of Mixed Greens Salad",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "Cub_Market",
+      "name": "Cub Market",
+      "status": "Now Closed",
+      "hours": [
+        "7:30 a.m. - 9:00 p.m."
+      ],
+      "serve_date": "Thu, Jul 23",
+      "meals": [
+        {
+          "period": "Summer - All Day",
+          "categories": [
+            {
+              "name": "Open all day",
+              "items": [
+                {
+                  "id": "1792",
+                  "menu_id": "350",
+                  "name": "Next to Foothill, this convenience store offers fresh and frozen meals, snacks, beverages, and more.",
+                  "tags": [],
+                  "carbon_footprint": "low"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "Den",
+      "name": "The Den",
+      "status": "Now Closed",
+      "hours": [
+        "7:00 a.m. - 9:00 p.m."
+      ],
+      "serve_date": "Thu, Jul 23",
+      "meals": [
+        {
+          "period": "Summer - All Day",
+          "categories": [
+            {
+              "name": "Peet's Coffee",
+              "items": [
+                {
+                  "id": "1794",
+                  "menu_id": "335",
+                  "name": "Next to Crossroads, this convenience store is home to Pizzeria 1868 and Peet’s Coffee.",
+                  "tags": [],
+                  "carbon_footprint": "low"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "Qualcomm_Cafe",
+      "name": "Qualcomm Café",
+      "status": "Now Closed",
+      "hours": [
+        "8:00 a.m. - 10:30 a.m.",
+        "11:00 a.m. - 4:30 p.m."
+      ],
+      "serve_date": "Thu, Jul 23",
+      "meals": [
+        {
+          "period": "Summer - Breakfast",
+          "categories": [
+            {
+              "name": "Breakfast",
+              "items": [
+                {
+                  "id": "3120",
+                  "menu_id": "344",
+                  "name": "Greek Yogurt, Granola & Fresh Fruit",
+                  "tags": [
+                    "milk",
+                    "alcohol",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "3121",
+                  "menu_id": "344",
+                  "name": "Avocado Toast",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3122",
+                  "menu_id": "344",
+                  "name": "Avocado Toast with Poached Egg",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "3123",
+                  "menu_id": "344",
+                  "name": "Spinach Artichoke Quiche with Bacon",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "pork",
+                    "vegetarian-option",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3124",
+                  "menu_id": "344",
+                  "name": "Spinach & Artichoke Quiche",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option",
+                    "kosher"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Bagels",
+              "items": [
+                {
+                  "id": "3156",
+                  "menu_id": "344",
+                  "name": "Plain Bagel",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3164",
+                  "menu_id": "344",
+                  "name": "Bagel with Butter & Jam",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "3166",
+                  "menu_id": "344",
+                  "name": "Bagel with Peanut Butter & Jam",
+                  "tags": [
+                    "wheat",
+                    "peanuts",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3162",
+                  "menu_id": "344",
+                  "name": "Bagel with Cream Cheese",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3163",
+                  "menu_id": "344",
+                  "name": "Bagel with Cream Cheese, Cucumber, Onion, Lettuce, & Tomato",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3157",
+                  "menu_id": "344",
+                  "name": "Bagel with Hummus",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "sesame",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3158",
+                  "menu_id": "344",
+                  "name": "Bagel with Hummus, Cucumber, Red Onion, Lettuce, and Tomato",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "sesame",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3160",
+                  "menu_id": "344",
+                  "name": "Bagel with Poached Egg",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3161",
+                  "menu_id": "344",
+                  "name": "Bagel with Poached Egg & Cheese",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "3159",
+                  "menu_id": "344",
+                  "name": "Bagel with Ham, Egg, & Cheese",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "gluten",
+                    "pork"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "3165",
+                  "menu_id": "344",
+                  "name": "Bagel with Lox, Cream Cheese, Onion, and Tomato",
+                  "tags": [
+                    "milk",
+                    "fish",
+                    "wheat",
+                    "gluten"
+                  ],
+                  "carbon_footprint": "medium"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "period": "Summer - Lunch",
+          "categories": [
+            {
+              "name": "Sandwich",
+              "items": [
+                {
+                  "id": "2990",
+                  "menu_id": "345",
+                  "name": "Chicken Club Sandwich",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "pork"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "2993",
+                  "menu_id": "345",
+                  "name": "Italian Salami Sandwich",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten",
+                    "alcohol",
+                    "pork"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "2995",
+                  "menu_id": "345",
+                  "name": "Roasted Turkey Sandwich",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "alcohol"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "2991",
+                  "menu_id": "345",
+                  "name": "Egg & Garden Vegetable Sandwich",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "2994",
+                  "menu_id": "345",
+                  "name": "Fresh Mozzarella & Tomato Sandwich",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2996",
+                  "menu_id": "345",
+                  "name": "Roasted Eggplant & Tahini Sandwich (Vegan)",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "sesame",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Panini",
+              "items": [
+                {
+                  "id": "2997",
+                  "menu_id": "345",
+                  "name": "Turkey Pesto Panini on Whole Wheat",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "2998",
+                  "menu_id": "345",
+                  "name": "Tuna Melt Panini on Whole Wheat",
+                  "tags": [
+                    "milk",
+                    "fish",
+                    "wheat",
+                    "soybeans",
+                    "gluten"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "2999",
+                  "menu_id": "345",
+                  "name": "Caprese Panini on Whole Wheat",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                }
+              ]
+            },
+            {
+              "name": "Salad",
+              "items": [
+                {
+                  "id": "3119",
+                  "menu_id": "345",
+                  "name": "Chopped Turkey Salad",
+                  "tags": [
+                    "milk",
+                    "tree-nuts",
+                    "pork"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "3117",
+                  "menu_id": "345",
+                  "name": "Garden Salad",
+                  "tags": [
+                    "egg",
+                    "vegetarian-option",
+                    "halal"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "3118",
+                  "menu_id": "345",
+                  "name": "Side Garden Salad",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Soup",
+              "items": [
+                {
+                  "id": "522",
+                  "menu_id": "345",
+                  "name": "Tomato Bisque Soup",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "523",
+                  "menu_id": "345",
+                  "name": "Minestrone Soup",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "Gateway_Cafe",
+      "name": "Gateway Café",
+      "status": "Now Closed",
+      "hours": [
+        "8:00 a.m. - 10:30 a.m.",
+        "11:00 a.m. - 6:00 p.m."
+      ],
+      "serve_date": "Thu, Jul 23",
+      "meals": [
+        {
+          "period": "Summer - Breakfast",
+          "categories": [
+            {
+              "name": "Main Entrees",
+              "items": [
+                {
+                  "id": "2623",
+                  "menu_id": "341",
+                  "name": "Avocado Toast",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "sesame",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2625",
+                  "menu_id": "341",
+                  "name": "Aegean Sunrise Toast",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten",
+                    "sesame",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "2962",
+                  "menu_id": "341",
+                  "name": "Mediterranean Breakfast Bowl",
+                  "tags": [
+                    "milk",
+                    "egg",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Sides",
+              "items": [
+                {
+                  "id": "2959",
+                  "menu_id": "341",
+                  "name": "Herbed Roasted Potatoes",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "1324",
+                  "menu_id": "341",
+                  "name": "Large Fruit Salad",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "period": "Summer - Lunch",
+          "categories": [
+            {
+              "name": "Bowl - Base",
+              "items": [
+                {
+                  "id": "2529",
+                  "menu_id": "342",
+                  "name": "Lemon Herb Rice",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2633",
+                  "menu_id": "342",
+                  "name": "Red Quinoa Pilaf",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2647",
+                  "menu_id": "342",
+                  "name": "Mixed Greens with Olives and Tomatoes",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Bowl - Protein",
+              "items": [
+                {
+                  "id": "2643",
+                  "menu_id": "342",
+                  "name": "Halal Chicken Souvlaki",
+                  "tags": [
+                    "halal"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "2975",
+                  "menu_id": "342",
+                  "name": "Lemon Dill Salmon",
+                  "tags": [
+                    "fish",
+                    "soybeans"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2651",
+                  "menu_id": "342",
+                  "name": "Lamb Kofta Ball",
+                  "tags": [
+                    "halal"
+                  ],
+                  "carbon_footprint": "high"
+                },
+                {
+                  "id": "2638",
+                  "menu_id": "342",
+                  "name": "Falafel",
+                  "tags": [
+                    "vegan-option",
+                    "halal"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Bowl - Sides",
+              "items": [
+                {
+                  "id": "2646",
+                  "menu_id": "342",
+                  "name": "Cucumber Tomato Salad",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2972",
+                  "menu_id": "342",
+                  "name": "Spiced Roasted Cauliflower",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2645",
+                  "menu_id": "342",
+                  "name": "Pickled Red Onions",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2971",
+                  "menu_id": "342",
+                  "name": "Marinated Olives",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2969",
+                  "menu_id": "342",
+                  "name": "Crumbled Feta",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "medium"
+                },
+                {
+                  "id": "2970",
+                  "menu_id": "342",
+                  "name": "Crispy Chickpeas",
+                  "tags": [
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Bowl - Sauce",
+              "items": [
+                {
+                  "id": "2618",
+                  "menu_id": "342",
+                  "name": "Tzatziki",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option",
+                    "halal"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2619",
+                  "menu_id": "342",
+                  "name": "Lemon Tahini",
+                  "tags": [
+                    "sesame",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2973",
+                  "menu_id": "342",
+                  "name": "Greek Yogurt",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option",
+                    "halal"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Wraps",
+              "items": [
+                {
+                  "id": "2968",
+                  "menu_id": "342",
+                  "name": "Chicken Souvlaki Wrap",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten",
+                    "halal"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2642",
+                  "menu_id": "342",
+                  "name": "Falafel Delight Wrap",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "sesame",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2508",
+                  "menu_id": "342",
+                  "name": "Pita Chips",
+                  "tags": [
+                    "wheat",
+                    "gluten",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Small Plates",
+              "items": [
+                {
+                  "id": "2639",
+                  "menu_id": "342",
+                  "name": "Lemon Garlic Fries with Feta Crumbles",
+                  "tags": [
+                    "milk",
+                    "vegetarian-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2629",
+                  "menu_id": "342",
+                  "name": "Hummus with Flatbread",
+                  "tags": [
+                    "wheat",
+                    "soybeans",
+                    "gluten",
+                    "sesame",
+                    "vegan-option"
+                  ],
+                  "carbon_footprint": "low"
+                },
+                {
+                  "id": "2630",
+                  "menu_id": "342",
+                  "name": "Tzatziki with Flatbread GW",
+                  "tags": [
+                    "milk",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option",
+                    "halal"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "id": "2718",
+                  "menu_id": "342",
+                  "name": "Pistachio Baklava",
+                  "tags": [
+                    "milk",
+                    "tree-nuts",
+                    "wheat",
+                    "gluten",
+                    "vegetarian-option",
+                    "halal"
+                  ],
+                  "carbon_footprint": "low"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

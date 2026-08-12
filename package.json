@@ -1,0 +1,17 @@
+{
+  "name": "berkeley-dining-app",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev --workspace @berkeley-dining/web",
+    "build:web": "npm run build --workspace @berkeley-dining/web",
+    "dev:mobile": "npm run start --workspace @berkeley-dining/mobile",
+    "scraper": "python3 -m scraper"
+  },
+  "dependencies": {
+    "react-native-web": "~0.19.13"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "Berkeley Dining",
+    "slug": "berkeley-dining",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "berkeleydining",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "plugins": [
+      "expo-router",
+      [
+        "expo-notifications",
+        {
+          "color": "#003262"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
