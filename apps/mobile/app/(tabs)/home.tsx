@@ -264,9 +264,14 @@ export default function HomeScreen() {
           <Text style={styles.kicker}>Menu week</Text>
           <Text style={styles.headline}>{formatSelectedHeadline(selectedDate)}</Text>
         </View>
-        <Link href="/favorites/setup" style={styles.link}>
-          Edit favorites
-        </Link>
+        <View style={styles.topLinks}>
+          <Link href="/settings" style={styles.link}>
+            Settings
+          </Link>
+          <Link href="/favorites/setup" style={styles.link}>
+            Edit favorites
+          </Link>
+        </View>
       </View>
 
       <FlatList
@@ -401,10 +406,14 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: "#003262",
   },
+  topLinks: {
+    alignItems: "flex-end",
+    gap: 8,
+    paddingTop: 4,
+  },
   link: {
     color: "#003262",
     fontWeight: "600",
-    paddingTop: 4,
   },
   dateList: {
     flexGrow: 0,

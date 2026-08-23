@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import type { FavoriteFood } from "@berkeley-dining/shared";
 import { normalizeFoodName } from "@berkeley-dining/shared";
+import { maybeOfferNotificationsAfterFirstFavorite } from "@/lib/notification-settings";
 import { apiFetch, supabase } from "@/lib/supabase";
 
 function filterFoodNames(foods: string[], query: string): string[] {
@@ -117,7 +118,11 @@ export default function FavoritesSetupScreen() {
         token,
       );
       setQuery("");
+      const wasEmpty = favorites.length === 0;
       await loadFavorites();
+      if (wasEmpty) {
+        await maybeOfferNotificationsAfterFirstFavorite(token);
+      }
     } catch (error) {
       Alert.alert("Error", error instanceof Error ? error.message : "Failed to add");
     } finally {
@@ -146,7 +151,8 @@ export default function FavoritesSetupScreen() {
       <Text style={styles.kicker}>Track dishes</Text>
       <Text style={styles.headline}>Add favorites</Text>
       <Text style={styles.help}>
-        Search the dining menus and tap a dish to get notified when it shows up.
+        Search the dining menus and tap a dish to track it. Turn on the morning
+        alert in Settings to hear when it shows up.
       </Text>
 
       <View style={styles.searchCard}>

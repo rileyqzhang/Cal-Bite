@@ -3,6 +3,7 @@ import {
   type LocationMenu,
   type MenuOutput,
 } from "@berkeley-dining/shared";
+import { todayInTimeZone } from "@/lib/time/campus";
 import { parseMenuHtml, parseRecipeDetails } from "./parse";
 
 export const AJAX_URL =
@@ -60,8 +61,7 @@ function isoDateString(menuDate: Date): string {
 }
 
 function todayLocal(): Date {
-  const now = new Date();
-  return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  return parseIsoDate(todayInTimeZone());
 }
 
 async function fetchWithRetry(

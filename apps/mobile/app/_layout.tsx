@@ -1,9 +1,22 @@
-import { Stack } from "expo-router";
+import { Stack, router } from "expo-router";
 import { useEffect, useState } from "react";
 import { ActivityIndicator, View } from "react-native";
 import { Session } from "@supabase/supabase-js";
-import { registerForPushNotifications } from "@/lib/notifications";
+import * as Notifications from "expo-notifications";
 import { supabase } from "@/lib/supabase";
+
+function openDailyDigestHome() {
+  router.replace("/(tabs)/home");
+}
+
+function isDailyDigest(data: unknown): boolean {
+  return (
+    typeof data === "object" &&
+    data !== null &&
+    "type" in data &&
+    (data as { type?: string }).type === "daily_digest"
+  );
+}
 
 export default function RootLayout() {
   const [session, setSession] = useState<Session | null | undefined>(undefined);
@@ -17,10 +30,25 @@ export default function RootLayout() {
   }, []);
 
   useEffect(() => {
-    if (session?.access_token) {
-      registerForPushNotifications(session.access_token).catch(() => undefined);
-    }
-  }, [session?.access_token]);
+    const subscription = Notifications.addNotificationResponseReceivedListener(
+      (response) => {
+        if (isDailyDigest(response.notification.request.content.data)) {
+          openDailyDigestHome();
+        }
+      },
+    );
+
+    Notifications.getLastNotificationResponseAsync().then((response) => {
+      if (response && isDailyDigest(response.notification.request.content.data)) {
+        openDailyDigestHome();
+      }
+      if (typeof Notifications.clearLastNotificationResponseAsync === "function") {
+        Notifications.clearLastNotificationResponseAsync();
+      }
+    });
+
+    return () => subscription.remove();
+  }, []);
 
   if (session === undefined) {
     return (
@@ -43,6 +71,7 @@ export default function RootLayout() {
       <Stack.Screen name="menu/[date]" options={{ title: "Full Menu" }} />
       <Stack.Screen name="food/[date]/[itemId]" options={{ title: "Food" }} />
       <Stack.Screen name="favorites/setup" options={{ title: "Favorite Foods" }} />
+      <Stack.Screen name="settings" options={{ title: "Settings" }} />
     </Stack>
   );
 }

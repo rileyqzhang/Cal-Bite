@@ -5,11 +5,14 @@ Host the Next.js API on Vercel so `/api/cron/daily` runs every morning without y
 ## Architecture
 
 ```
-Vercel Cron (7 AM Pacific)
+Vercel Cron (~6 AM Pacific)
     → GET /api/cron/daily
     → scrape Berkeley Dining (today + future dates)
     → upload JSON to Supabase Storage
-    → optional: send Expo push digests
+
+Vercel Cron (7:30 AM Pacific)
+    → GET /api/cron/notify
+    → match opted-in users and send Expo push digests
 
 Mobile / web app
     → reads menus from your Vercel API
@@ -77,15 +80,7 @@ Copy values from `apps/web/.env.local`.
 
 ## Step 4: Cron schedule
 
-[`vercel.json`](vercel.json) runs daily at **14:00 UTC** (~7 AM Pacific during PDT):
-
-```json
-{
-  "crons": [{ "path": "/api/cron/daily", "schedule": "0 14 * * *" }]
-}
-```
-
-Adjust for PST (`0 15 * * *` in winter) or use Vercel dashboard → Cron Jobs.
+[`vercel.json`](vercel.json) scrapes at **13:00 UTC** (~6 AM Pacific) and notifies at **14:30 and 15:30 UTC**. The notify job only sends when it is 7:30 AM in `America/Los_Angeles`.
 
 **Note:** Vercel Cron requires **Pro plan** on many accounts. Hobby has limited cron. The scrape route uses `maxDuration = 300` (5 min), which also needs Pro.
 

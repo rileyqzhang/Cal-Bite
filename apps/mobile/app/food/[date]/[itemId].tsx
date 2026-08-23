@@ -151,7 +151,7 @@ export default function FoodDetailScreen() {
     );
   }
 
-  const { item, locationName, mealPeriod, category } = menuItem;
+  const { item, mealPeriod, category } = menuItem;
 
   return (
     <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
@@ -159,7 +159,7 @@ export default function FoodDetailScreen() {
 
       <Text style={styles.title}>{item.name}</Text>
       <Text style={styles.meta}>
-        {locationName} · {mealPeriod.split(" - ").slice(-1)[0]} · {category}
+        {mealPeriod.split(" - ").slice(-1)[0]} · {category}
       </Text>
 
       <Text style={styles.sectionTitle}>Nutrition</Text>
