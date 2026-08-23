@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
+  ActivityIndicator,
   Alert,
   FlatList,
   Pressable,
@@ -9,12 +10,35 @@ import {
   View,
 } from "react-native";
 import type { FavoriteFood } from "@berkeley-dining/shared";
+import { normalizeFoodName } from "@berkeley-dining/shared";
 import { apiFetch, supabase } from "@/lib/supabase";
+
+function filterFoodNames(foods: string[], query: string): string[] {
+  const q = normalizeFoodName(query);
+  if (!q) return [];
+
+  const starts: string[] = [];
+  const other: string[] = [];
+  for (const name of foods) {
+    const n = normalizeFoodName(name);
+    const words = n.split(/[^a-z0-9]+/).filter(Boolean);
+    const hit = q.includes(" ")
+      ? n.includes(q)
+      : words.some((w) => w.startsWith(q));
+    if (!hit) continue;
+    if (n.startsWith(q) || words[0]?.startsWith(q)) starts.push(name);
+    else other.push(name);
+  }
+  return [...starts, ...other];
+}
 
 export default function FavoritesSetupScreen() {
   const [favorites, setFavorites] = useState<FavoriteFood[]>([]);
-  const [newFavorite, setNewFavorite] = useState("");
+  const [catalog, setCatalog] = useState<string[]>([]);
+  const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
+  const [catalogLoading, setCatalogLoading] = useState(true);
+  const [adding, setAdding] = useState<string | null>(null);
 
   const loadFavorites = useCallback(async () => {
     setLoading(true);
@@ -35,9 +59,54 @@ export default function FavoritesSetupScreen() {
     loadFavorites();
   }, [loadFavorites]);
 
-  async function addFavorite() {
-    const value = newFavorite.trim();
-    if (!value) return;
+  useEffect(() => {
+    let cancelled = false;
+    async function loadCatalog() {
+      setCatalogLoading(true);
+      try {
+        const response = await apiFetch("/api/foods");
+        if (!cancelled) setCatalog(response.foods ?? []);
+      } catch {
+        if (!cancelled) setCatalog([]);
+      } finally {
+        if (!cancelled) setCatalogLoading(false);
+      }
+    }
+    loadCatalog();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const favoriteKeys = useMemo(
+    () => new Set(favorites.map((f) => normalizeFoodName(f.food_name))),
+    [favorites],
+  );
+
+  const sortedFavorites = useMemo(
+    () =>
+      [...favorites].sort((a, b) =>
+        a.display_name.localeCompare(b.display_name, undefined, {
+          sensitivity: "base",
+        }),
+      ),
+    [favorites],
+  );
+
+  const suggestions = useMemo(
+    () =>
+      filterFoodNames(catalog, query).filter(
+        (name) => !favoriteKeys.has(normalizeFoodName(name)),
+      ),
+    [catalog, query, favoriteKeys],
+  );
+
+  const searching = Boolean(normalizeFoodName(query));
+
+  async function addFavorite(foodName: string) {
+    const value = foodName.trim();
+    if (!value || adding) return;
+    setAdding(value);
     try {
       const { data: sessionData } = await supabase.auth.getSession();
       const token = sessionData.session?.access_token;
@@ -47,10 +116,12 @@ export default function FavoritesSetupScreen() {
         { method: "POST", body: JSON.stringify({ food_name: value }) },
         token,
       );
-      setNewFavorite("");
+      setQuery("");
       await loadFavorites();
     } catch (error) {
       Alert.alert("Error", error instanceof Error ? error.message : "Failed to add");
+    } finally {
+      setAdding(null);
     }
   }
 
@@ -72,68 +143,275 @@ export default function FavoritesSetupScreen() {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.kicker}>Track dishes</Text>
+      <Text style={styles.headline}>Add favorites</Text>
       <Text style={styles.help}>
-        Add exact dish names you want to track, like "Scrambled Eggs" or "Margherita Pizza".
+        Search the dining menus and tap a dish to get notified when it shows up.
       </Text>
-      <View style={styles.row}>
+
+      <View style={styles.searchCard}>
+        <Text style={styles.searchLabel}>Search</Text>
         <TextInput
           style={styles.input}
-          placeholder="Favorite food name"
-          value={newFavorite}
-          onChangeText={setNewFavorite}
+          placeholder="Try scrambled, cookie, chowder…"
+          placeholderTextColor="#9CA3AF"
+          value={query}
+          onChangeText={setQuery}
+          autoCorrect={false}
+          autoCapitalize="none"
+          clearButtonMode="while-editing"
         />
-        <Pressable style={styles.addButton} onPress={addFavorite}>
-          <Text style={styles.addButtonText}>Add</Text>
-        </Pressable>
+        {catalogLoading ? (
+          <Text style={styles.searchHint}>Loading menu dishes…</Text>
+        ) : (
+          <Text style={styles.searchHint}>
+            {catalog.length} dishes available to track
+          </Text>
+        )}
       </View>
-      {loading ? (
-        <Text>Loading...</Text>
-      ) : (
-        <FlatList
-          data={favorites}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <View style={styles.itemRow}>
-              <Text style={styles.itemText}>{item.display_name}</Text>
-              <Pressable onPress={() => removeFavorite(item.id)}>
-                <Text style={styles.removeText}>Remove</Text>
+
+      {searching ? (
+        <View style={styles.block}>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Results</Text>
+            <Text style={styles.count}>
+              {suggestions.length} match{suggestions.length === 1 ? "" : "es"}
+            </Text>
+          </View>
+          <FlatList
+            style={styles.suggestions}
+            data={suggestions}
+            keyExtractor={(item) => item}
+            keyboardShouldPersistTaps="handled"
+            ListEmptyComponent={
+              <View style={styles.emptyCard}>
+                <Text style={styles.emptyTitle}>No matches</Text>
+                <Text style={styles.emptyBody}>
+                  Nothing on the current menus starts with “{query.trim()}”.
+                </Text>
+              </View>
+            }
+            renderItem={({ item }) => (
+              <Pressable
+                style={styles.suggestionCard}
+                onPress={() => addFavorite(item)}
+                disabled={adding === item}
+              >
+                <Text style={styles.suggestionText}>{item}</Text>
+                <View style={styles.addPill}>
+                  <Text style={styles.addPillText}>
+                    {adding === item ? "Adding…" : "Add"}
+                  </Text>
+                </View>
               </Pressable>
-            </View>
+            )}
+          />
+        </View>
+      ) : (
+        <View style={styles.block}>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Your favorites</Text>
+            {!loading ? (
+              <Text style={styles.count}>
+                {sortedFavorites.length} dish
+                {sortedFavorites.length === 1 ? "" : "es"}
+              </Text>
+            ) : null}
+          </View>
+
+          {loading ? (
+            <ActivityIndicator color="#003262" style={{ marginTop: 20 }} />
+          ) : (
+            <FlatList
+              data={sortedFavorites}
+              keyExtractor={(item) => item.id}
+              contentContainerStyle={styles.favoriteList}
+              ListEmptyComponent={
+                <View style={styles.emptyCard}>
+                  <Text style={styles.emptyTitle}>No favorites yet</Text>
+                  <Text style={styles.emptyBody}>
+                    Start typing above to find a dish from this week’s menus.
+                  </Text>
+                </View>
+              }
+              renderItem={({ item }) => (
+                <View style={styles.favoriteCard}>
+                  <Text style={styles.favoriteName}>{item.display_name}</Text>
+                  <Pressable
+                    style={styles.removeButton}
+                    onPress={() => removeFavorite(item.id)}
+                    hitSlop={8}
+                  >
+                    <Text style={styles.removeText}>Remove</Text>
+                  </Pressable>
+                </View>
+              )}
+            />
           )}
-          ListEmptyComponent={<Text style={styles.empty}>No favorites yet.</Text>}
-        />
+        </View>
       )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#fff", padding: 16 },
-  help: { color: "#666", marginBottom: 12 },
-  row: { flexDirection: "row", gap: 8, marginBottom: 16 },
-  input: {
+  container: {
     flex: 1,
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 10,
-    paddingHorizontal: 12,
-  },
-  addButton: {
-    backgroundColor: "#003262",
-    borderRadius: 10,
+    backgroundColor: "#F7F8FA",
     paddingHorizontal: 16,
-    justifyContent: "center",
+    paddingTop: 12,
+    paddingBottom: 16,
   },
-  addButtonText: { color: "#fff", fontWeight: "600" },
-  itemRow: {
+  kicker: {
+    fontSize: 12,
+    fontWeight: "600",
+    color: "#6B7280",
+    letterSpacing: 0.4,
+    textTransform: "uppercase",
+    marginBottom: 2,
+  },
+  headline: {
+    fontSize: 24,
+    fontWeight: "700",
+    color: "#003262",
+    marginBottom: 6,
+  },
+  help: {
+    color: "#6B7280",
+    fontSize: 14,
+    lineHeight: 20,
+    marginBottom: 16,
+  },
+  searchCard: {
+    backgroundColor: "#fff",
+    borderRadius: 16,
+    padding: 14,
+    borderWidth: 1,
+    borderColor: "#EEF0F3",
+    marginBottom: 18,
+  },
+  searchLabel: {
+    fontSize: 12,
+    fontWeight: "700",
+    color: "#6B7280",
+    textTransform: "uppercase",
+    letterSpacing: 0.3,
+    marginBottom: 8,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: "#E5E7EB",
+    backgroundColor: "#F9FAFB",
+    borderRadius: 12,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    fontSize: 16,
+    color: "#111827",
+  },
+  searchHint: {
+    marginTop: 8,
+    fontSize: 12,
+    color: "#9CA3AF",
+  },
+  block: { flex: 1 },
+  sectionHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: "#eee",
+    alignItems: "baseline",
+    marginBottom: 10,
   },
-  itemText: { fontSize: 16 },
-  removeText: { color: "#c00" },
-  empty: { color: "#666" },
+  sectionTitle: {
+    fontSize: 17,
+    fontWeight: "700",
+    color: "#003262",
+  },
+  count: {
+    fontSize: 13,
+    color: "#6B7280",
+  },
+  suggestions: {
+    flexGrow: 0,
+    maxHeight: "100%",
+  },
+  suggestionCard: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 12,
+    backgroundColor: "#fff",
+    borderRadius: 14,
+    paddingHorizontal: 14,
+    paddingVertical: 14,
+    marginBottom: 8,
+    borderWidth: 1,
+    borderColor: "#EEF0F3",
+  },
+  suggestionText: {
+    flex: 1,
+    fontSize: 15,
+    fontWeight: "600",
+    color: "#111827",
+  },
+  addPill: {
+    backgroundColor: "#003262",
+    borderRadius: 999,
+    paddingHorizontal: 12,
+    paddingVertical: 7,
+  },
+  addPillText: {
+    color: "#fff",
+    fontWeight: "700",
+    fontSize: 13,
+  },
+  favoriteList: {
+    paddingBottom: 24,
+  },
+  favoriteCard: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 12,
+    backgroundColor: "#fff",
+    borderRadius: 14,
+    paddingHorizontal: 14,
+    paddingVertical: 14,
+    marginBottom: 8,
+    borderWidth: 1,
+    borderColor: "#EEF0F3",
+  },
+  favoriteName: {
+    flex: 1,
+    fontSize: 15,
+    fontWeight: "700",
+    color: "#111827",
+  },
+  removeButton: {
+    backgroundColor: "#FEF2F2",
+    borderRadius: 999,
+    paddingHorizontal: 12,
+    paddingVertical: 7,
+  },
+  removeText: {
+    color: "#B91C1C",
+    fontWeight: "700",
+    fontSize: 13,
+  },
+  emptyCard: {
+    backgroundColor: "#fff",
+    borderRadius: 14,
+    padding: 20,
+    borderWidth: 1,
+    borderColor: "#EEF0F3",
+  },
+  emptyTitle: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#003262",
+    marginBottom: 6,
+  },
+  emptyBody: {
+    fontSize: 14,
+    color: "#6B7280",
+    lineHeight: 20,
+  },
 });

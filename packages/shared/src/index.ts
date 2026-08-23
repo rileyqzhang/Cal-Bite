@@ -37,6 +37,7 @@ export type MenuOutput = {
 
 export type FavoriteMatch = {
   food_name: string;
+  item_id: string;
   location_name: string;
   location_slug: string;
   meal_period: string;

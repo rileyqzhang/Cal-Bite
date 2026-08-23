@@ -3,9 +3,12 @@ import { Platform } from "react-native";
 export const SUPABASE_URL = process.env.EXPO_PUBLIC_SUPABASE_URL?.trim() ?? "";
 export const SUPABASE_ANON_KEY =
   process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY?.trim() ?? "";
+// Web preview runs on the Mac, so always hit local Next.js.
+// Native (phone) uses EXPO_PUBLIC_API_URL (your Mac LAN IP while developing).
 export const API_URL =
-  process.env.EXPO_PUBLIC_API_URL?.trim() ??
-  (Platform.OS === "web" ? "http://localhost:3000" : "http://localhost:3000");
+  Platform.OS === "web"
+    ? "http://localhost:3000"
+    : process.env.EXPO_PUBLIC_API_URL?.trim() || "http://localhost:3000";
 
 export function getSupabaseConfigError(): string | null {
   if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {

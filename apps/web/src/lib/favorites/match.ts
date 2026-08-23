@@ -17,6 +17,7 @@ export function findFavoriteMatches(
           if (!normalizedFavorites.has(normalizeFoodName(item.name))) continue;
           matches.push({
             food_name: item.name,
+            item_id: item.id,
             location_name: location.name,
             location_slug: location.slug,
             meal_period: meal.period,

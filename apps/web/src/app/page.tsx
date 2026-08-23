@@ -7,6 +7,7 @@ export default function HomePage() {
         <li><code>GET /api/menus/available-dates</code></li>
         <li><code>GET /api/menus/[date]</code></li>
         <li><code>GET /api/menus/[date]/matches</code> (auth)</li>
+        <li><code>GET /api/foods?q=</code> (substring dish search)</li>
         <li><code>GET/POST/DELETE /api/favorites</code> (auth)</li>
         <li><code>POST /api/push/register</code> (auth)</li>
         <li><code>GET /api/cron/daily</code> (cron)</li>

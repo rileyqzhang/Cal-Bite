@@ -9,10 +9,13 @@
     "dev:web": "npm run dev --workspace @berkeley-dining/web",
     "build:web": "npm run build --workspace @berkeley-dining/web",
     "dev:mobile": "npm run start --workspace @berkeley-dining/mobile",
-    "scraper": "python3 -m scraper"
+    "scraper": "python3 -m scraper",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
   "overrides": {
-    "react": "18.3.1",
-    "react-dom": "18.3.1"
-  }
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "version": "1.0.0"
 }

@@ -41,6 +41,7 @@ export default function RootLayout() {
       <Stack.Screen name="(auth)/signup" options={{ title: "Sign In" }} />
       <Stack.Screen name="(tabs)/home" options={{ title: "Berkeley Dining" }} />
       <Stack.Screen name="menu/[date]" options={{ title: "Full Menu" }} />
+      <Stack.Screen name="food/[date]/[itemId]" options={{ title: "Food" }} />
       <Stack.Screen name="favorites/setup" options={{ title: "Favorite Foods" }} />
     </Stack>
   );

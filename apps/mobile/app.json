@@ -18,6 +18,9 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "ios": {
+      "bundleIdentifier": "com.anonymous.berkeley-dining"
     }
   }
 }
