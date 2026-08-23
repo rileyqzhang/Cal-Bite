@@ -10,7 +10,9 @@ import {
 } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import type { MenuOutput } from "@berkeley-dining/shared";
+import { PressableScale } from "@/components/PressableScale";
 import { apiFetch } from "@/lib/supabase";
+import { color, radius, type } from "@/lib/theme";
 
 type DropdownProps = {
   label: string;
@@ -26,7 +28,7 @@ function Dropdown({ label, value, options, onChange }: DropdownProps) {
   return (
     <View style={styles.dropdownWrap}>
       <Text style={styles.dropdownLabel}>{label}</Text>
-      <Pressable
+      <PressableScale
         style={styles.dropdownButton}
         onPress={() => setOpen(true)}
         accessibilityRole="button"
@@ -35,7 +37,7 @@ function Dropdown({ label, value, options, onChange }: DropdownProps) {
           {selected?.label ?? "Select…"}
         </Text>
         <Text style={styles.caret}>▾</Text>
-      </Pressable>
+      </PressableScale>
 
       <Modal
         visible={open}
@@ -44,15 +46,19 @@ function Dropdown({ label, value, options, onChange }: DropdownProps) {
         onRequestClose={() => setOpen(false)}
       >
         <View style={styles.modalBackdrop}>
-          <Pressable style={StyleSheet.absoluteFillObject} onPress={() => setOpen(false)} />
+          <Pressable
+            style={StyleSheet.absoluteFillObject}
+            onPress={() => setOpen(false)}
+          />
           <View style={styles.modalCard}>
             <Text style={styles.modalTitle}>{label}</Text>
             <ScrollView style={styles.modalList}>
               {options.map((option) => {
                 const active = option.value === value;
                 return (
-                  <Pressable
+                  <PressableScale
                     key={option.value}
+                    selected={active}
                     style={[styles.optionRow, active && styles.optionRowActive]}
                     onPress={() => {
                       onChange(option.value);
@@ -67,7 +73,8 @@ function Dropdown({ label, value, options, onChange }: DropdownProps) {
                     >
                       {option.label}
                     </Text>
-                  </Pressable>
+                    {active ? <Text style={styles.optionCheck}>✓</Text> : null}
+                  </PressableScale>
                 );
               })}
             </ScrollView>
@@ -147,7 +154,7 @@ export default function MenuScreen() {
   if (loading) {
     return (
       <View style={styles.center}>
-        <ActivityIndicator color="#003262" />
+        <ActivityIndicator color={color.ink} />
       </View>
     );
   }
@@ -155,7 +162,7 @@ export default function MenuScreen() {
   if (!menu) {
     return (
       <View style={styles.center}>
-        <Text>Menu not available for {date}</Text>
+        <Text style={styles.empty}>Menu not available for {date}</Text>
       </View>
     );
   }
@@ -163,7 +170,7 @@ export default function MenuScreen() {
   if (!hallOptions.length) {
     return (
       <View style={styles.center}>
-        <Text>No dining halls listed for {date}</Text>
+        <Text style={styles.empty}>No dining halls listed for {date}</Text>
       </View>
     );
   }
@@ -171,7 +178,7 @@ export default function MenuScreen() {
   return (
     <View style={styles.screen}>
       <View style={styles.filters}>
-        <Text style={styles.dateLabel}>{date}</Text>
+        <Text style={styles.kicker}>{date}</Text>
         <Dropdown
           label="Dining hall"
           value={hallSlug}
@@ -203,9 +210,12 @@ export default function MenuScreen() {
         ) : (
           selectedMeal.categories.map((category) => (
             <View key={`${selectedMeal.period}-${category.name}`} style={styles.categoryBlock}>
-              <Text style={styles.categoryName}>{category.name}</Text>
+              <View style={styles.mealDivider}>
+                <Text style={styles.categoryName}>{category.name}</Text>
+                <View style={styles.mealDividerLine} />
+              </View>
               {category.items.map((item) => (
-                <Pressable
+                <PressableScale
                   key={`${item.id}-${item.menu_id}-${item.name}`}
                   style={styles.itemRow}
                   onPress={() =>
@@ -219,9 +229,9 @@ export default function MenuScreen() {
                     })
                   }
                 >
-                  <Text style={styles.itemName}>• {item.name}</Text>
-                  <Text style={styles.itemChevron}>Details</Text>
-                </Pressable>
+                  <Text style={styles.itemName}>{item.name}</Text>
+                  <Text style={styles.rowMark}>›</Text>
+                </PressableScale>
               ))}
             </View>
           ))
@@ -232,81 +242,139 @@ export default function MenuScreen() {
 }
 
 const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: "#fff" },
+  screen: { flex: 1, backgroundColor: color.background },
   container: { flex: 1 },
-  content: { padding: 16, paddingTop: 8 },
-  center: { flex: 1, justifyContent: "center", alignItems: "center", padding: 16 },
+  content: { padding: 16, paddingTop: 8, paddingBottom: 32 },
+  center: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: color.background,
+    padding: 16,
+  },
   filters: {
     paddingHorizontal: 16,
     paddingTop: 12,
-    paddingBottom: 8,
-    borderBottomWidth: 1,
-    borderBottomColor: "#eee",
+    paddingBottom: 12,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: color.hairline,
     gap: 10,
+    backgroundColor: color.background,
   },
-  dateLabel: { fontSize: 13, color: "#666", marginBottom: 2 },
+  kicker: {
+    ...type.kicker,
+    marginBottom: 2,
+  },
   dropdownWrap: { gap: 4 },
-  dropdownLabel: { fontSize: 12, fontWeight: "600", color: "#555" },
+  dropdownLabel: type.caption,
   dropdownButton: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 10,
+    borderColor: color.hairline,
+    borderRadius: radius.sm,
     paddingHorizontal: 12,
     paddingVertical: 12,
-    backgroundColor: "#fafafa",
+    backgroundColor: color.card,
   },
-  dropdownButtonText: { flex: 1, fontSize: 16, color: "#111", paddingRight: 8 },
-  caret: { fontSize: 14, color: "#003262" },
+  dropdownButtonText: {
+    flex: 1,
+    fontSize: 16,
+    color: color.reading,
+    paddingRight: 8,
+  },
+  caret: { fontSize: 14, color: color.accent },
   modalBackdrop: {
     flex: 1,
-    backgroundColor: "rgba(0,0,0,0.35)",
+    backgroundColor: "rgba(0,50,98,0.28)",
     justifyContent: "center",
     padding: 24,
   },
   modalCard: {
-    backgroundColor: "#fff",
+    backgroundColor: color.card,
     borderRadius: 14,
     maxHeight: "70%",
     overflow: "hidden",
     zIndex: 1,
+    borderWidth: 1,
+    borderColor: color.hairline,
   },
   modalTitle: {
+    ...type.section,
     fontSize: 16,
-    fontWeight: "700",
-    color: "#003262",
     paddingHorizontal: 16,
     paddingTop: 16,
     paddingBottom: 8,
   },
   modalList: { paddingBottom: 8 },
   optionRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     paddingHorizontal: 16,
     paddingVertical: 14,
-    borderTopWidth: 1,
-    borderTopColor: "#f0f0f0",
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: color.hairline,
+    backgroundColor: color.card,
   },
-  optionRowActive: { backgroundColor: "#003262" },
-  optionText: { fontSize: 16, color: "#222" },
-  optionTextActive: { color: "#fff", fontWeight: "600" },
-  meta: { color: "#666", marginBottom: 12, fontSize: 13 },
-  categoryBlock: { marginBottom: 16 },
-  categoryName: {
-    fontSize: 15,
+  optionRowActive: {
+    backgroundColor: color.ink,
+    borderColor: color.accent,
+    borderTopColor: color.accent,
+  },
+  optionText: { fontSize: 16, color: color.reading, flex: 1 },
+  optionTextActive: { color: color.onInk, fontWeight: "600" },
+  optionCheck: {
+    color: color.accent,
+    fontSize: 16,
     fontWeight: "700",
-    color: "#003262",
-    marginBottom: 6,
+    marginLeft: 12,
+  },
+  meta: { ...type.meta, marginBottom: 12 },
+  categoryBlock: { marginBottom: 16 },
+  mealDivider: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    marginBottom: 8,
+  },
+  categoryName: {
+    fontSize: 13,
+    fontWeight: "700",
+    color: color.ink,
+    textTransform: "uppercase",
+    letterSpacing: 0.4,
+  },
+  mealDividerLine: {
+    flex: 1,
+    height: StyleSheet.hairlineWidth,
+    backgroundColor: color.hairline,
   },
   itemRow: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    paddingVertical: 6,
-    paddingLeft: 4,
+    backgroundColor: color.card,
+    borderRadius: radius.sm,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    marginBottom: 6,
+    borderWidth: 1,
+    borderColor: color.hairline,
   },
-  itemName: { flex: 1, fontSize: 15, color: "#222", paddingRight: 8 },
-  itemChevron: { fontSize: 13, color: "#003262", fontWeight: "600" },
-  empty: { color: "#666", marginTop: 12 },
+  itemName: {
+    flex: 1,
+    fontSize: 15,
+    fontWeight: "600",
+    color: color.reading,
+    paddingRight: 8,
+  },
+  rowMark: {
+    fontSize: 16,
+    fontWeight: "400",
+    color: color.accent,
+    lineHeight: 18,
+  },
+  empty: { color: color.muted, marginTop: 12 },
 });
