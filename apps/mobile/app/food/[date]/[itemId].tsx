@@ -9,6 +9,7 @@ import {
 import { Stack, useLocalSearchParams } from "expo-router";
 import type { MenuItem, MenuOutput } from "@berkeley-dining/shared";
 import { apiFetch } from "@/lib/supabase";
+import { color, radius, type } from "@/lib/theme";
 
 function formatNutrient(value: unknown, digits = 1): string {
   if (typeof value !== "number" || Number.isNaN(value)) return "—";
@@ -137,7 +138,7 @@ export default function FoodDetailScreen() {
     return (
       <View style={styles.center}>
         <Stack.Screen options={{ title: "Food" }} />
-        <ActivityIndicator color="#003262" />
+        <ActivityIndicator color={color.ink} />
       </View>
     );
   }
@@ -157,18 +158,24 @@ export default function FoodDetailScreen() {
     <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
       <Stack.Screen options={{ title: item.name }} />
 
-      <Text style={styles.title}>{item.name}</Text>
-      <Text style={styles.meta}>
+      <Text style={styles.kicker}>
         {mealPeriod.split(" - ").slice(-1)[0]} · {category}
       </Text>
+      <Text style={styles.title}>{item.name}</Text>
 
       <Text style={styles.sectionTitle}>Nutrition</Text>
       {!nutrition ? (
         <Text style={styles.empty}>Nutrition details are not available for this item.</Text>
       ) : (
         <View style={styles.nutritionCard}>
-          {rows.map((row) => (
-            <View key={row.label} style={styles.nutritionRow}>
+          {rows.map((row, index) => (
+            <View
+              key={row.label}
+              style={[
+                styles.nutritionRow,
+                index === rows.length - 1 && styles.nutritionRowLast,
+              ]}
+            >
               <Text style={styles.nutritionLabel}>{row.label}</Text>
               <Text style={styles.nutritionValue}>{row.value}</Text>
             </View>
@@ -177,45 +184,55 @@ export default function FoodDetailScreen() {
       )}
 
       {item.allergens?.length ? (
-        <>
+        <View style={styles.block}>
           <Text style={styles.sectionTitle}>Allergens</Text>
-          <Text style={styles.body}>{item.allergens.join(", ")}</Text>
-        </>
+          <View style={styles.bodyCard}>
+            <Text style={styles.body}>{item.allergens.join(", ")}</Text>
+          </View>
+        </View>
       ) : null}
 
       {item.ingredients ? (
-        <>
+        <View style={styles.block}>
           <Text style={styles.sectionTitle}>Ingredients</Text>
-          <Text style={styles.body}>{item.ingredients}</Text>
-        </>
+          <View style={styles.bodyCard}>
+            <Text style={styles.body}>{item.ingredients}</Text>
+          </View>
+        </View>
       ) : null}
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: "#fff" },
+  screen: { flex: 1, backgroundColor: color.background },
   content: { padding: 16, paddingBottom: 40 },
   center: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#fff",
+    backgroundColor: color.background,
     padding: 16,
   },
-  title: { fontSize: 24, fontWeight: "700", color: "#003262" },
-  meta: { marginTop: 6, marginBottom: 18, color: "#666", fontSize: 14 },
+  kicker: {
+    ...type.kicker,
+    marginBottom: 6,
+  },
+  title: {
+    ...type.display,
+    marginBottom: 18,
+  },
   sectionTitle: {
+    ...type.section,
     fontSize: 16,
-    fontWeight: "700",
-    color: "#003262",
     marginBottom: 8,
     marginTop: 8,
   },
   nutritionCard: {
+    backgroundColor: color.card,
     borderWidth: 1,
-    borderColor: "#eee",
-    borderRadius: 12,
+    borderColor: color.hairline,
+    borderRadius: radius.md,
     marginBottom: 12,
     overflow: "hidden",
   },
@@ -224,11 +241,24 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingHorizontal: 14,
     paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: "#f0f0f0",
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: color.hairline,
   },
-  nutritionLabel: { fontSize: 15, color: "#444" },
-  nutritionValue: { fontSize: 15, fontWeight: "600", color: "#111" },
-  body: { fontSize: 14, color: "#333", lineHeight: 20, marginBottom: 12 },
-  empty: { color: "#666" },
+  nutritionRowLast: {
+    borderBottomWidth: 0,
+  },
+  nutritionLabel: { fontSize: 15, color: color.muted },
+  nutritionValue: { fontSize: 15, fontWeight: "600", color: color.reading },
+  block: { marginBottom: 4 },
+  bodyCard: {
+    backgroundColor: color.card,
+    borderWidth: 1,
+    borderColor: color.hairline,
+    borderRadius: radius.md,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    marginBottom: 12,
+  },
+  body: { fontSize: 14, color: color.reading, lineHeight: 20 },
+  empty: { color: color.muted },
 });

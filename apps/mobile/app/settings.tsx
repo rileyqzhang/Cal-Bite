@@ -2,13 +2,13 @@ import { useCallback, useEffect, useState } from "react";
 import {
   ActivityIndicator,
   Alert,
-  Pressable,
   StyleSheet,
   Switch,
   Text,
   View,
 } from "react-native";
 import { router } from "expo-router";
+import { PressableScale } from "@/components/PressableScale";
 import {
   disableMorningNotifications,
   enableMorningNotifications,
@@ -18,6 +18,7 @@ import {
 } from "@/lib/notification-settings";
 import { unregisterPushNotifications } from "@/lib/notifications";
 import { supabase } from "@/lib/supabase";
+import { color, radius, type } from "@/lib/theme";
 
 export default function SettingsScreen() {
   const [loading, setLoading] = useState(true);
@@ -99,7 +100,7 @@ export default function SettingsScreen() {
   if (loading) {
     return (
       <View style={styles.centered}>
-        <ActivityIndicator size="large" color="#003262" />
+        <ActivityIndicator size="large" color={color.ink} />
       </View>
     );
   }
@@ -123,8 +124,8 @@ export default function SettingsScreen() {
             value={enabled}
             onValueChange={toggleEnabled}
             disabled={saving}
-            trackColor={{ false: "#D1D5DB", true: "#FDB515" }}
-            thumbColor="#fff"
+            trackColor={{ false: color.hairline, true: color.accent }}
+            thumbColor={color.card}
           />
         </View>
       </View>
@@ -132,9 +133,11 @@ export default function SettingsScreen() {
       {enabled ? (
         <View style={styles.card}>
           <Text style={styles.sectionLabel}>When to notify</Text>
-          <Pressable
+          <PressableScale
+            selected={mode === "favorites_only"}
             style={[styles.choice, mode === "favorites_only" && styles.choiceOn]}
             onPress={() => changeMode("favorites_only")}
+            disabled={saving}
           >
             <Text
               style={[
@@ -152,10 +155,12 @@ export default function SettingsScreen() {
             >
               Only when at least one favorite is on today’s menu
             </Text>
-          </Pressable>
-          <Pressable
+          </PressableScale>
+          <PressableScale
+            selected={mode === "always"}
             style={[styles.choice, mode === "always" && styles.choiceOn]}
             onPress={() => changeMode("always")}
+            disabled={saving}
           >
             <Text
               style={[
@@ -173,13 +178,15 @@ export default function SettingsScreen() {
             >
               Favorites when they appear, otherwise a menu teaser
             </Text>
-          </Pressable>
+          </PressableScale>
         </View>
       ) : null}
 
-      <Pressable style={styles.signOut} onPress={signOut}>
-        <Text style={styles.signOutText}>Sign out</Text>
-      </Pressable>
+      <View style={styles.signOutWrap}>
+        <PressableScale style={styles.signOut} onPress={signOut}>
+          <Text style={styles.signOutText}>Sign out</Text>
+        </PressableScale>
+      </View>
     </View>
   );
 }
@@ -189,41 +196,35 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F7F8FA",
+    backgroundColor: color.background,
   },
   container: {
     flex: 1,
-    backgroundColor: "#F7F8FA",
+    backgroundColor: color.background,
     paddingHorizontal: 16,
     paddingTop: 12,
     paddingBottom: 16,
   },
   kicker: {
-    fontSize: 12,
-    fontWeight: "600",
-    color: "#6B7280",
-    letterSpacing: 0.4,
-    textTransform: "uppercase",
+    ...type.kicker,
     marginBottom: 2,
   },
   headline: {
-    fontSize: 24,
-    fontWeight: "700",
-    color: "#003262",
+    ...type.display,
     marginBottom: 6,
   },
   help: {
-    color: "#6B7280",
+    color: color.muted,
     fontSize: 14,
     lineHeight: 20,
     marginBottom: 16,
   },
   card: {
-    backgroundColor: "#fff",
-    borderRadius: 16,
+    backgroundColor: color.card,
+    borderRadius: radius.lg,
     padding: 14,
     borderWidth: 1,
-    borderColor: "#EEF0F3",
+    borderColor: color.hairline,
     marginBottom: 14,
   },
   row: {
@@ -238,59 +239,60 @@ const styles = StyleSheet.create({
   rowTitle: {
     fontSize: 16,
     fontWeight: "700",
-    color: "#111827",
+    color: color.reading,
   },
   rowBody: {
     marginTop: 4,
     fontSize: 13,
-    color: "#6B7280",
+    color: color.muted,
   },
   sectionLabel: {
-    fontSize: 12,
-    fontWeight: "700",
-    color: "#6B7280",
-    textTransform: "uppercase",
-    letterSpacing: 0.3,
+    ...type.kicker,
     marginBottom: 10,
   },
   choice: {
     borderWidth: 1,
-    borderColor: "#E5E7EB",
-    borderRadius: 12,
+    borderColor: color.hairline,
+    borderRadius: radius.md,
     padding: 12,
     marginBottom: 8,
-    backgroundColor: "#F9FAFB",
+    backgroundColor: color.inset,
   },
   choiceOn: {
-    backgroundColor: "#003262",
-    borderColor: "#FDB515",
+    backgroundColor: color.ink,
+    borderColor: color.accent,
+    borderWidth: 2,
   },
   choiceTitle: {
     fontSize: 15,
     fontWeight: "700",
-    color: "#111827",
+    color: color.reading,
     marginBottom: 4,
   },
   choiceTitleOn: {
-    color: "#fff",
+    color: color.onInk,
   },
   choiceBody: {
     fontSize: 13,
-    color: "#6B7280",
+    color: color.muted,
     lineHeight: 18,
   },
   choiceBodyOn: {
-    color: "#E5E7EB",
+    color: color.hairline,
+  },
+  signOutWrap: {
+    marginTop: "auto",
   },
   signOut: {
-    marginTop: "auto",
-    backgroundColor: "#FEF2F2",
+    borderWidth: 1,
+    borderColor: color.hairline,
+    backgroundColor: color.card,
     borderRadius: 14,
     paddingVertical: 16,
     alignItems: "center",
   },
   signOutText: {
-    color: "#B91C1C",
+    color: color.ink,
     fontWeight: "700",
     fontSize: 16,
   },

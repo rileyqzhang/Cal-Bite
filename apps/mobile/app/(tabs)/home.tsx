@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import {
   ActivityIndicator,
   FlatList,
-  Pressable,
+  LayoutAnimation,
   SectionList,
   StyleSheet,
   Text,
@@ -11,7 +11,9 @@ import {
 import { Link, router } from "expo-router";
 import type { FavoriteMatch } from "@berkeley-dining/shared";
 import { normalizeFoodName } from "@berkeley-dining/shared";
+import { PressableScale } from "@/components/PressableScale";
 import { apiFetch, supabase } from "@/lib/supabase";
+import { color, radius, type } from "@/lib/theme";
 
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] as const;
 
@@ -257,6 +259,15 @@ export default function HomeScreen() {
     };
   }, [selectedDate]);
 
+  function selectDate(next: string) {
+    if (next === selectedDate) return;
+    LayoutAnimation.configureNext({
+      duration: 180,
+      update: { type: LayoutAnimation.Types.easeInEaseOut },
+    });
+    setSelectedDate(next);
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>
@@ -286,13 +297,14 @@ export default function HomeScreen() {
           const active = item === selectedDate;
           const favoriteCount = favoriteCounts[item] ?? 0;
           return (
-            <Pressable
+            <PressableScale
+              selected={active}
               style={[
                 styles.dateChip,
                 active && styles.dateChipActive,
                 isToday && !active && styles.dateChipToday,
               ]}
-              onPress={() => setSelectedDate(item)}
+              onPress={() => selectDate(item)}
             >
               <Text
                 style={[
@@ -311,7 +323,7 @@ export default function HomeScreen() {
                 {day}
               </Text>
               <FavoriteDots count={favoriteCount} active={active} />
-            </Pressable>
+            </PressableScale>
           );
         }}
       />
@@ -326,7 +338,7 @@ export default function HomeScreen() {
       </View>
 
       {loading ? (
-        <ActivityIndicator color="#003262" style={{ marginTop: 24 }} />
+        <ActivityIndicator color={color.ink} style={{ marginTop: 24 }} />
       ) : mealSections.length ? (
         <SectionList
           sections={mealSections}
@@ -340,7 +352,7 @@ export default function HomeScreen() {
             </View>
           )}
           renderItem={({ item }) => (
-            <Pressable
+            <PressableScale
               style={styles.matchCard}
               onPress={() =>
                 router.push({
@@ -360,21 +372,23 @@ export default function HomeScreen() {
                 <Text style={styles.halls} numberOfLines={1}>
                   {item.locations.join(" · ")}
                 </Text>
-                <Text style={styles.nutritionLink}>Nutrition</Text>
+                <Text style={styles.rowMark}>›</Text>
               </View>
-            </Pressable>
+            </PressableScale>
           )}
         />
       ) : (
         <Text style={styles.empty}>No favorite foods on this date.</Text>
       )}
 
-      <Pressable
-        style={styles.menuButton}
-        onPress={() => router.push(`/menu/${selectedDate}`)}
-      >
-        <Text style={styles.menuButtonText}>View full menu</Text>
-      </Pressable>
+      <View style={styles.menuButtonWrap}>
+        <PressableScale
+          style={styles.menuButton}
+          onPress={() => router.push(`/menu/${selectedDate}`)}
+        >
+          <Text style={styles.menuButtonText}>View full menu</Text>
+        </PressableScale>
+      </View>
     </View>
   );
 }
@@ -382,7 +396,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F7F8FA",
+    backgroundColor: color.background,
     paddingHorizontal: 16,
     paddingTop: 12,
     paddingBottom: 16,
@@ -394,25 +408,17 @@ const styles = StyleSheet.create({
     marginBottom: 14,
   },
   kicker: {
-    fontSize: 12,
-    fontWeight: "600",
-    color: "#6B7280",
-    letterSpacing: 0.4,
-    textTransform: "uppercase",
+    ...type.kicker,
     marginBottom: 2,
   },
-  headline: {
-    fontSize: 22,
-    fontWeight: "700",
-    color: "#003262",
-  },
+  headline: type.title,
   topLinks: {
     alignItems: "flex-end",
     gap: 8,
     paddingTop: 4,
   },
   link: {
-    color: "#003262",
+    color: color.ink,
     fontWeight: "600",
   },
   dateList: {
@@ -422,39 +428,37 @@ const styles = StyleSheet.create({
   dateListContent: {
     gap: 8,
     alignItems: "center",
-    paddingVertical: 2,
+    paddingVertical: 8,
   },
   dateChip: {
     width: 52,
     paddingTop: 10,
     paddingBottom: 8,
-    borderRadius: 16,
-    backgroundColor: "#fff",
+    borderRadius: radius.lg,
+    backgroundColor: color.card,
     borderWidth: 1,
-    borderColor: "#E5E7EB",
+    borderColor: color.hairline,
     alignItems: "center",
   },
   dateChipToday: {
-    borderColor: "#FDB515",
+    borderColor: color.accent,
   },
   dateChipActive: {
-    backgroundColor: "#003262",
-    borderColor: "#FDB515",
+    backgroundColor: color.ink,
+    borderColor: color.accent,
     borderWidth: 2,
   },
   dateWeekday: {
-    fontSize: 11,
-    fontWeight: "600",
-    color: "#6B7280",
+    ...type.caption,
     marginBottom: 4,
   },
   dateDay: {
     fontSize: 18,
     fontWeight: "700",
-    color: "#111827",
+    color: color.reading,
   },
   dateTextActive: {
-    color: "#fff",
+    color: color.onInk,
   },
   dotsRow: {
     flexDirection: "row",
@@ -474,10 +478,10 @@ const styles = StyleSheet.create({
     width: 4,
     height: 4,
     borderRadius: 2,
-    backgroundColor: "#FDB515",
+    backgroundColor: color.accent,
   },
   favoriteDotActive: {
-    backgroundColor: "#FDB515",
+    backgroundColor: color.accent,
   },
   sectionHeader: {
     flexDirection: "row",
@@ -485,15 +489,8 @@ const styles = StyleSheet.create({
     alignItems: "baseline",
     marginBottom: 10,
   },
-  sectionTitle: {
-    fontSize: 17,
-    fontWeight: "700",
-    color: "#003262",
-  },
-  count: {
-    fontSize: 13,
-    color: "#6B7280",
-  },
+  sectionTitle: type.section,
+  count: type.meta,
   matchList: {
     paddingBottom: 8,
   },
@@ -507,28 +504,28 @@ const styles = StyleSheet.create({
   mealDividerText: {
     fontSize: 13,
     fontWeight: "700",
-    color: "#003262",
+    color: color.ink,
     textTransform: "uppercase",
     letterSpacing: 0.4,
   },
   mealDividerLine: {
     flex: 1,
     height: StyleSheet.hairlineWidth,
-    backgroundColor: "#D1D5DB",
+    backgroundColor: color.hairline,
   },
   matchCard: {
-    backgroundColor: "#fff",
-    borderRadius: 10,
+    backgroundColor: color.card,
+    borderRadius: radius.sm,
     paddingHorizontal: 12,
     paddingVertical: 8,
     marginBottom: 6,
     borderWidth: 1,
-    borderColor: "#EEF0F3",
+    borderColor: color.hairline,
   },
   foodName: {
     fontSize: 15,
     fontWeight: "700",
-    color: "#111827",
+    color: color.reading,
   },
   matchBottom: {
     flexDirection: "row",
@@ -539,28 +536,31 @@ const styles = StyleSheet.create({
   },
   halls: {
     flex: 1,
-    color: "#6B7280",
+    color: color.muted,
     fontSize: 12,
   },
-  nutritionLink: {
-    fontSize: 12,
-    fontWeight: "700",
-    color: "#003262",
+  rowMark: {
+    fontSize: 16,
+    fontWeight: "400",
+    color: color.accent,
+    lineHeight: 18,
   },
   empty: {
-    color: "#6B7280",
+    color: color.muted,
     marginTop: 8,
     marginBottom: 12,
   },
-  menuButton: {
+  menuButtonWrap: {
     marginTop: "auto",
-    backgroundColor: "#FDB515",
+  },
+  menuButton: {
+    backgroundColor: color.accent,
     borderRadius: 14,
     paddingVertical: 16,
     alignItems: "center",
   },
   menuButtonText: {
-    color: "#003262",
+    color: color.ink,
     fontWeight: "700",
     fontSize: 16,
   },

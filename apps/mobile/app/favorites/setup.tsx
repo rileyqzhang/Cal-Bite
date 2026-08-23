@@ -3,7 +3,6 @@ import {
   ActivityIndicator,
   Alert,
   FlatList,
-  Pressable,
   StyleSheet,
   Text,
   TextInput,
@@ -11,8 +10,10 @@ import {
 } from "react-native";
 import type { FavoriteFood } from "@berkeley-dining/shared";
 import { normalizeFoodName } from "@berkeley-dining/shared";
+import { PressableScale } from "@/components/PressableScale";
 import { maybeOfferNotificationsAfterFirstFavorite } from "@/lib/notification-settings";
 import { apiFetch, supabase } from "@/lib/supabase";
+import { color, radius, type } from "@/lib/theme";
 
 function filterFoodNames(foods: string[], query: string): string[] {
   const q = normalizeFoodName(query);
@@ -160,7 +161,7 @@ export default function FavoritesSetupScreen() {
         <TextInput
           style={styles.input}
           placeholder="Try scrambled, cookie, chowder…"
-          placeholderTextColor="#9CA3AF"
+          placeholderTextColor={color.faint}
           value={query}
           onChangeText={setQuery}
           autoCorrect={false}
@@ -198,18 +199,18 @@ export default function FavoritesSetupScreen() {
               </View>
             }
             renderItem={({ item }) => (
-              <Pressable
-                style={styles.suggestionCard}
+              <PressableScale
+                style={styles.rowCard}
                 onPress={() => addFavorite(item)}
                 disabled={adding === item}
               >
-                <Text style={styles.suggestionText}>{item}</Text>
-                <View style={styles.addPill}>
-                  <Text style={styles.addPillText}>
+                <Text style={styles.rowName}>{item}</Text>
+                <View style={styles.accentPill}>
+                  <Text style={styles.accentPillText}>
                     {adding === item ? "Adding…" : "Add"}
                   </Text>
                 </View>
-              </Pressable>
+              </PressableScale>
             )}
           />
         </View>
@@ -226,7 +227,7 @@ export default function FavoritesSetupScreen() {
           </View>
 
           {loading ? (
-            <ActivityIndicator color="#003262" style={{ marginTop: 20 }} />
+            <ActivityIndicator color={color.ink} style={{ marginTop: 20 }} />
           ) : (
             <FlatList
               data={sortedFavorites}
@@ -241,15 +242,15 @@ export default function FavoritesSetupScreen() {
                 </View>
               }
               renderItem={({ item }) => (
-                <View style={styles.favoriteCard}>
+                <View style={styles.rowCard}>
                   <Text style={styles.favoriteName}>{item.display_name}</Text>
-                  <Pressable
-                    style={styles.removeButton}
+                  <PressableScale
+                    style={styles.ghostPill}
                     onPress={() => removeFavorite(item.id)}
                     hitSlop={8}
                   >
-                    <Text style={styles.removeText}>Remove</Text>
-                  </Pressable>
+                    <Text style={styles.ghostPillText}>Remove</Text>
+                  </PressableScale>
                 </View>
               )}
             />
@@ -263,61 +264,51 @@ export default function FavoritesSetupScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F7F8FA",
+    backgroundColor: color.background,
     paddingHorizontal: 16,
     paddingTop: 12,
     paddingBottom: 16,
   },
   kicker: {
-    fontSize: 12,
-    fontWeight: "600",
-    color: "#6B7280",
-    letterSpacing: 0.4,
-    textTransform: "uppercase",
+    ...type.kicker,
     marginBottom: 2,
   },
   headline: {
-    fontSize: 24,
-    fontWeight: "700",
-    color: "#003262",
+    ...type.display,
     marginBottom: 6,
   },
   help: {
-    color: "#6B7280",
+    color: color.muted,
     fontSize: 14,
     lineHeight: 20,
     marginBottom: 16,
   },
   searchCard: {
-    backgroundColor: "#fff",
-    borderRadius: 16,
+    backgroundColor: color.card,
+    borderRadius: radius.lg,
     padding: 14,
     borderWidth: 1,
-    borderColor: "#EEF0F3",
+    borderColor: color.hairline,
     marginBottom: 18,
   },
   searchLabel: {
-    fontSize: 12,
-    fontWeight: "700",
-    color: "#6B7280",
-    textTransform: "uppercase",
-    letterSpacing: 0.3,
+    ...type.kicker,
     marginBottom: 8,
   },
   input: {
     borderWidth: 1,
-    borderColor: "#E5E7EB",
-    backgroundColor: "#F9FAFB",
-    borderRadius: 12,
+    borderColor: color.hairline,
+    backgroundColor: color.inset,
+    borderRadius: radius.md,
     paddingHorizontal: 14,
     paddingVertical: 12,
     fontSize: 16,
-    color: "#111827",
+    color: color.reading,
   },
   searchHint: {
     marginTop: 8,
     fontSize: 12,
-    color: "#9CA3AF",
+    color: color.faint,
   },
   block: { flex: 1 },
   sectionHeader: {
@@ -326,98 +317,78 @@ const styles = StyleSheet.create({
     alignItems: "baseline",
     marginBottom: 10,
   },
-  sectionTitle: {
-    fontSize: 17,
-    fontWeight: "700",
-    color: "#003262",
-  },
-  count: {
-    fontSize: 13,
-    color: "#6B7280",
-  },
+  sectionTitle: type.section,
+  count: type.meta,
   suggestions: {
     flexGrow: 0,
     maxHeight: "100%",
   },
-  suggestionCard: {
+  rowCard: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     gap: 12,
-    backgroundColor: "#fff",
+    backgroundColor: color.card,
     borderRadius: 14,
     paddingHorizontal: 14,
     paddingVertical: 14,
     marginBottom: 8,
     borderWidth: 1,
-    borderColor: "#EEF0F3",
+    borderColor: color.hairline,
   },
-  suggestionText: {
+  rowName: {
     flex: 1,
     fontSize: 15,
     fontWeight: "600",
-    color: "#111827",
+    color: color.reading,
   },
-  addPill: {
-    backgroundColor: "#003262",
-    borderRadius: 999,
+  accentPill: {
+    backgroundColor: color.accent,
+    borderRadius: radius.pill,
     paddingHorizontal: 12,
     paddingVertical: 7,
   },
-  addPillText: {
-    color: "#fff",
+  accentPillText: {
+    color: color.ink,
     fontWeight: "700",
     fontSize: 13,
   },
   favoriteList: {
     paddingBottom: 24,
   },
-  favoriteCard: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    gap: 12,
-    backgroundColor: "#fff",
-    borderRadius: 14,
-    paddingHorizontal: 14,
-    paddingVertical: 14,
-    marginBottom: 8,
-    borderWidth: 1,
-    borderColor: "#EEF0F3",
-  },
   favoriteName: {
     flex: 1,
     fontSize: 15,
     fontWeight: "700",
-    color: "#111827",
+    color: color.reading,
   },
-  removeButton: {
-    backgroundColor: "#FEF2F2",
-    borderRadius: 999,
+  ghostPill: {
+    borderWidth: 1,
+    borderColor: color.hairline,
+    borderRadius: radius.pill,
     paddingHorizontal: 12,
     paddingVertical: 7,
   },
-  removeText: {
-    color: "#B91C1C",
+  ghostPillText: {
+    color: color.ink,
     fontWeight: "700",
     fontSize: 13,
   },
   emptyCard: {
-    backgroundColor: "#fff",
+    backgroundColor: color.card,
     borderRadius: 14,
     padding: 20,
     borderWidth: 1,
-    borderColor: "#EEF0F3",
+    borderColor: color.hairline,
   },
   emptyTitle: {
+    ...type.section,
     fontSize: 16,
-    fontWeight: "700",
-    color: "#003262",
     marginBottom: 6,
   },
   emptyBody: {
     fontSize: 14,
-    color: "#6B7280",
+    color: color.muted,
     lineHeight: 20,
   },
 });

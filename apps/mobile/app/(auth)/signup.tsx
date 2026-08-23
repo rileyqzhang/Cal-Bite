@@ -2,18 +2,19 @@ import { useState } from "react";
 import {
   Alert,
   Platform,
-  Pressable,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from "react-native";
 import { Link, router } from "expo-router";
+import { PressableScale } from "@/components/PressableScale";
 import {
   explainAuthNetworkError,
   getSupabaseConfigError,
 } from "@/lib/config";
 import { supabase } from "@/lib/supabase";
+import { color, radius, type } from "@/lib/theme";
 
 function showMessage(title: string, message: string) {
   if (Platform.OS === "web") {
@@ -104,6 +105,7 @@ export default function SignupScreen() {
         autoCapitalize="none"
         keyboardType="email-address"
         placeholder="Email"
+        placeholderTextColor={color.faint}
         value={email}
         onChangeText={setEmail}
       />
@@ -111,25 +113,26 @@ export default function SignupScreen() {
         style={styles.input}
         secureTextEntry
         placeholder="Password (min 6 characters)"
+        placeholderTextColor={color.faint}
         value={password}
         onChangeText={setPassword}
       />
-      {errorMessage ? <Text style={styles.error}>{errorMessage}</Text> : null}
-      {statusMessage ? <Text style={styles.success}>{statusMessage}</Text> : null}
-      <Pressable
+      {errorMessage ? <Text style={styles.status}>{errorMessage}</Text> : null}
+      {statusMessage ? <Text style={styles.status}>{statusMessage}</Text> : null}
+      <PressableScale
         style={styles.button}
         onPress={() => handleAuth("signin")}
         disabled={loading}
       >
-        <Text style={styles.buttonText}>{loading ? "..." : "Sign In"}</Text>
-      </Pressable>
-      <Pressable
+        <Text style={styles.buttonText}>{loading ? "…" : "Sign In"}</Text>
+      </PressableScale>
+      <PressableScale
         style={styles.secondaryButton}
         onPress={() => handleAuth("signup")}
         disabled={loading}
       >
         <Text style={styles.secondaryText}>Create Account</Text>
-      </Pressable>
+      </PressableScale>
       <Link href="/favorites/setup" style={styles.link}>
         Manage favorites after sign in
       </Link>
@@ -142,28 +145,42 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 24,
     justifyContent: "center",
-    backgroundColor: "#fff",
+    backgroundColor: color.background,
   },
-  title: { fontSize: 28, fontWeight: "700", color: "#003262", marginBottom: 8 },
-  subtitle: { fontSize: 16, color: "#555", marginBottom: 24 },
+  title: {
+    ...type.display,
+    fontSize: 28,
+    marginBottom: 8,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: color.muted,
+    marginBottom: 24,
+  },
   input: {
     borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 10,
-    padding: 12,
+    borderColor: color.hairline,
+    backgroundColor: color.card,
+    borderRadius: radius.md,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
     marginBottom: 12,
+    fontSize: 16,
+    color: color.reading,
   },
   button: {
-    backgroundColor: "#003262",
-    borderRadius: 10,
-    padding: 14,
+    backgroundColor: color.accent,
+    borderRadius: 14,
+    paddingVertical: 16,
     alignItems: "center",
     marginBottom: 10,
   },
-  buttonText: { color: "#fff", fontWeight: "600" },
-  secondaryButton: { padding: 12, alignItems: "center" },
-  secondaryText: { color: "#003262" },
-  link: { marginTop: 16, color: "#666", textAlign: "center" },
-  error: { color: "#b00020", marginBottom: 12 },
-  success: { color: "#006400", marginBottom: 12 },
+  buttonText: { color: color.ink, fontWeight: "700", fontSize: 16 },
+  secondaryButton: {
+    paddingVertical: 12,
+    alignItems: "center",
+  },
+  secondaryText: { color: color.ink, fontWeight: "600" },
+  link: { marginTop: 16, color: color.muted, textAlign: "center" },
+  status: { color: color.ink, marginBottom: 12, fontWeight: "600" },
 });
