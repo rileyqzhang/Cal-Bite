@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "tsx --test src/lib/push/copy.test.ts",
     "scrape:test": "tsx scripts/test-scraper.ts"
   },
   "dependencies": {

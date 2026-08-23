@@ -12,7 +12,8 @@
       [
         "expo-notifications",
         {
-          "color": "#003262"
+          "color": "#003262",
+          "defaultChannel": "daily-favorites"
         }
       ]
     ],
@@ -20,7 +21,17 @@
       "typedRoutes": true
     },
     "ios": {
-      "bundleIdentifier": "com.anonymous.berkeley-dining"
+      "bundleIdentifier": "com.anonymous.berkeley-dining",
+      "infoPlist": {
+        "UIBackgroundModes": ["remote-notification"]
+      },
+      "entitlements": {
+        "aps-environment": "production"
+      }
+    },
+    "android": {
+      "package": "com.anonymous.berkeleydining",
+      "permissions": ["android.permission.POST_NOTIFICATIONS"]
     }
   }
 }

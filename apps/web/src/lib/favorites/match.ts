@@ -39,20 +39,3 @@ export function findFavoriteMatches(
   return matches;
 }
 
-export function formatMatchesForPush(matches: FavoriteMatch[]): string {
-  if (!matches.length) return "";
-  const lines = matches.map(
-    (m) =>
-      `${m.food_name} — ${m.location_name} (${formatMealShort(m.meal_period)})`,
-  );
-  const unique = [...new Set(lines)];
-  const preview = unique.slice(0, 5).join(", ");
-  const suffix =
-    unique.length > 5 ? ` and ${unique.length - 5} more` : "";
-  return `Good morning! Today: ${preview}${suffix}`;
-}
-
-function formatMealShort(period: string): string {
-  const parts = period.split(" - ");
-  return parts[parts.length - 1] ?? period;
-}

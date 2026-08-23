@@ -1,6 +1,6 @@
 # Berkeley Dining App
 
-Monorepo for scraping Berkeley Dining menus, serving them via a Next.js API on Vercel, and delivering a mobile app with favorite-food matching and 7 AM push notifications.
+Monorepo for scraping Berkeley Dining menus, serving them via a Next.js API on Vercel, and delivering a mobile app with favorite-food matching and 7:30 AM Pacific push notifications.
 
 ## Project layout
 
@@ -55,12 +55,12 @@ Set these env vars in Vercel:
 | `SUPABASE_URL` | Supabase project URL |
 | `SUPABASE_ANON_KEY` | Public anon key |
 | `SUPABASE_SERVICE_ROLE_KEY` | Cron uploads + push fan-out |
-| `CRON_SECRET` | Protect `/api/cron/daily` |
+| `CRON_SECRET` | Protect `/api/cron/daily` and `/api/cron/notify` |
 | `EXPO_ACCESS_TOKEN` | Optional Expo push auth |
 
 Deploy with root directory `apps/web` or configure Vercel monorepo settings accordingly.
 
-Cron schedule is defined in [`apps/web/vercel.json`](apps/web/vercel.json) (`0 14 * * *` UTC ≈ 7:00 AM Pacific during PDT).
+Cron schedules are in [`apps/web/vercel.json`](apps/web/vercel.json): scrape around 6:00 AM Pacific, notify at 7:30 AM Pacific (DST-safe dual ticks).
 
 ### API routes
 
@@ -70,13 +70,17 @@ Cron schedule is defined in [`apps/web/vercel.json`](apps/web/vercel.json) (`0 1
 | `GET /api/menus/[date]` | Public |
 | `GET /api/menus/[date]/matches` | Bearer JWT |
 | `GET/POST/DELETE /api/favorites` | Bearer JWT |
+| `GET/PATCH /api/settings` | Bearer JWT |
 | `POST /api/push/register` | Bearer JWT |
+| `POST /api/push/unregister` | Bearer JWT |
 | `GET /api/cron/daily` | `Authorization: Bearer $CRON_SECRET` |
+| `GET /api/cron/notify` | `Authorization: Bearer $CRON_SECRET` |
 
 Manual cron test:
 
 ```bash
 curl -H "Authorization: Bearer $CRON_SECRET" http://localhost:3000/api/cron/daily
+curl -H "Authorization: Bearer $CRON_SECRET" "http://localhost:3000/api/cron/notify?force=1"
 ```
 
 ## 4. Mobile app (Expo)
@@ -98,15 +102,15 @@ Set:
 2. Add favorite foods by name.
 3. Home screen: pick a date, see favorite matches first (hall + meal period).
 4. Tap **View full menu** for the complete menu.
-5. Receive one daily push at 7 AM when favorites appear today.
+5. Opt in to one daily push at 7:30 AM Pacific from Settings.
 
 ## 5. Validation checklist
 
 1. `python3 -m scraper --through-available --no-nutrition` writes JSON for today + future dates.
 2. `GET /api/cron/daily` uploads menus to Supabase Storage.
 3. Mobile home loads matches for a signed-in user with favorites.
-4. Expo push token registers via `POST /api/push/register`.
-5. Cron sends digest pushes for users with matches today.
+4. Settings enables morning notifications and registers an Expo push token.
+5. `/api/cron/notify` sends one digest per opted-in user at 7:30 AM Pacific.
 
 ## Notes
 
