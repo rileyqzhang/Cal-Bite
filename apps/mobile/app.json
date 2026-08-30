@@ -1,12 +1,16 @@
 {
   "expo": {
-    "name": "Berkeley Dining",
-    "slug": "berkeley-dining",
+    "name": "CalBite",
+    "slug": "calbite",
     "version": "1.0.0",
     "orientation": "portrait",
     "scheme": "berkeleydining",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+    "splash": {
+      "backgroundColor": "#003262",
+      "resizeMode": "contain"
+    },
     "plugins": [
       "expo-router",
       [
@@ -21,9 +25,11 @@
       "typedRoutes": true
     },
     "ios": {
-      "bundleIdentifier": "com.anonymous.berkeley-dining",
+      "bundleIdentifier": "com.rileyqzhang.calbiteapp",
       "infoPlist": {
-        "UIBackgroundModes": ["remote-notification"]
+        "UIBackgroundModes": [
+          "remote-notification"
+        ]
       },
       "entitlements": {
         "aps-environment": "production"
@@ -31,7 +37,16 @@
     },
     "android": {
       "package": "com.anonymous.berkeleydining",
-      "permissions": ["android.permission.POST_NOTIFICATIONS"]
-    }
+      "permissions": [
+        "android.permission.POST_NOTIFICATIONS"
+      ]
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "1460889e-c64b-4a82-b13d-c8258478133c"
+      }
+    },
+    "owner": "rileyqzhang"
   }
 }

@@ -11,8 +11,25 @@ import { Platform, UIManager } from "react-native";
  *   accent      California Gold — the only accent; selection rim, tint, check
  *   hairline    one stroke
  *   radius      sm / md / lg / pill
- *   type        system UI sans; display is the same face at 700
+ *   type        system UI sans; dish names use Times New Roman
  */
+
+/** Regular Times New Roman (UI chrome may still use system sans). */
+export const serif = Platform.select({
+  ios: "Times New Roman",
+  android: "serif",
+  web: '"Times New Roman", Times, serif',
+  default: "serif",
+});
+
+/** Bold face for dish names — iOS needs the PostScript bold name. */
+export const serifBold = Platform.select({
+  ios: "TimesNewRomanPS-BoldMT",
+  android: "serif",
+  web: '"Times New Roman", Times, serif',
+  default: "serif",
+});
+
 export const color = {
   background: "#F7F8FA",
   card: "#FFFFFF",
@@ -59,6 +76,13 @@ export const type = {
   body: {
     fontSize: 15,
     fontWeight: "600" as const,
+    color: color.reading,
+  },
+  /** Dish / food names across the app. */
+  dish: {
+    fontFamily: serifBold,
+    fontSize: 15,
+    fontWeight: "700" as const,
     color: color.reading,
   },
   meta: {

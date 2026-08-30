@@ -1,34 +1,42 @@
 import { Redirect } from "expo-router";
-import { useEffect, useState } from "react";
-import { ActivityIndicator, View } from "react-native";
+import { useCallback, useEffect, useState } from "react";
+import * as SplashScreen from "expo-splash-screen";
+import { AnimatedSplash } from "@/components/AnimatedSplash";
 import { supabase } from "@/lib/supabase";
-import { color } from "@/lib/theme";
+
+SplashScreen.preventAutoHideAsync().catch(() => {});
 
 export default function Index() {
-  const [ready, setReady] = useState(false);
+  const [authReady, setAuthReady] = useState(false);
   const [signedIn, setSignedIn] = useState(false);
+  const [exited, setExited] = useState(false);
 
   useEffect(() => {
+    let cancelled = false;
+    const timeout = setTimeout(() => {
+      if (!cancelled) setAuthReady(true);
+    }, 8000);
+
     supabase.auth.getSession().then(({ data }) => {
+      if (cancelled) return;
       setSignedIn(!!data.session);
-      setReady(true);
+      setAuthReady(true);
+      clearTimeout(timeout);
     });
+
+    return () => {
+      cancelled = true;
+      clearTimeout(timeout);
+    };
   }, []);
 
-  if (!ready) {
-    return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: color.background,
-        }}
-      >
-        <ActivityIndicator color={color.ink} />
-      </View>
-    );
+  const onExitComplete = useCallback(() => {
+    setExited(true);
+  }, []);
+
+  if (exited) {
+    return <Redirect href={signedIn ? "/(tabs)/home" : "/(auth)/signin"} />;
   }
 
-  return <Redirect href={signedIn ? "/(tabs)/home" : "/(auth)/signup"} />;
+  return <AnimatedSplash canExit={authReady} onExitComplete={onExitComplete} />;
 }

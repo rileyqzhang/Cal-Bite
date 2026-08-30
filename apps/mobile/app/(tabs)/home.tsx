@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import {
-  ActivityIndicator,
   FlatList,
   LayoutAnimation,
   SectionList,
@@ -8,12 +7,14 @@ import {
   Text,
   View,
 } from "react-native";
-import { Link, router } from "expo-router";
+import { router } from "expo-router";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import type { FavoriteMatch } from "@berkeley-dining/shared";
 import { normalizeFoodName } from "@berkeley-dining/shared";
 import { PressableScale } from "@/components/PressableScale";
+import { HomeFavoritesSkeleton } from "@/components/Skeleton";
 import { apiFetch, supabase } from "@/lib/supabase";
-import { color, radius, type } from "@/lib/theme";
+import { color, serif, serifBold, type } from "@/lib/theme";
 
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] as const;
 
@@ -30,21 +31,19 @@ function parseIsoDate(iso: string): Date {
   return new Date(y, (m ?? 1) - 1, d ?? 1);
 }
 
-function formatDateLabel(iso: string): { weekday: string; day: string; isToday: boolean } {
+function formatDateLabel(iso: string): {
+  weekday: string;
+  day: string;
+  isToday: boolean;
+  month: string;
+} {
   const date = parseIsoDate(iso);
   return {
     weekday: WEEKDAYS[date.getDay()] ?? "",
     day: String(date.getDate()),
     isToday: iso === todayIso(),
+    month: date.toLocaleString("en-US", { month: "short" }),
   };
-}
-
-function formatSelectedHeadline(iso: string): string {
-  const date = parseIsoDate(iso);
-  const label = formatDateLabel(iso);
-  const month = date.toLocaleString("en-US", { month: "short" });
-  if (label.isToday) return `Today · ${month} ${label.day}`;
-  return `${label.weekday} · ${month} ${label.day}`;
 }
 
 function shortMealPeriod(period: string): string {
@@ -52,7 +51,6 @@ function shortMealPeriod(period: string): string {
   return parts[parts.length - 1] ?? period;
 }
 
-/** Breakfast → Lunch → Dinner → anything else. */
 function mealSortRank(period: string): number {
   const meal = shortMealPeriod(period).toLowerCase();
   if (meal.includes("breakfast")) return 0;
@@ -63,7 +61,18 @@ function mealSortRank(period: string): number {
   return 5;
 }
 
-const MAX_FAVORITE_DOTS = 6;
+function dishGlyph(name: string): string {
+  const n = name.toLowerCase();
+  if (n.includes("bagel") || n.includes("bread") || n.includes("toast")) return "🥯";
+  if (n.includes("egg")) return "🍳";
+  if (n.includes("salad")) return "🥗";
+  if (n.includes("soup") || n.includes("chowder")) return "🍲";
+  if (n.includes("chicken") || n.includes("beef") || n.includes("pork")) return "🍽️";
+  if (n.includes("rice") || n.includes("bowl")) return "🍚";
+  if (n.includes("cookie") || n.includes("cake") || n.includes("dessert")) return "🍪";
+  if (n.includes("yogurt") || n.includes("fruit")) return "🥣";
+  return "🍴";
+}
 
 type GroupedMatch = {
   key: string;
@@ -73,30 +82,35 @@ type GroupedMatch = {
   locations: string[];
 };
 
-function FavoriteDots({
+function FavoriteCountBadge({
   count,
   active,
 }: {
   count: number;
   active: boolean;
 }) {
-  const dots = Math.min(Math.max(count, 0), MAX_FAVORITE_DOTS);
-  if (dots === 0) {
-    return <View style={styles.dotsRowSpacer} />;
+  const n = Math.max(count, 0);
+  if (n === 0) {
+    return <View style={styles.countBadgeSpacer} />;
   }
+  const label = n > 9 ? "9+" : String(n);
   return (
-    <View style={styles.dotsRow}>
-      {Array.from({ length: dots }, (_, index) => (
-        <View
-          key={index}
-          style={[styles.favoriteDot, active && styles.favoriteDotActive]}
-        />
-      ))}
+    <View style={[styles.countBadge, active && styles.countBadgeActive]}>
+      <Text style={[styles.countBadgeText, active && styles.countBadgeTextActive]}>
+        {label}
+      </Text>
     </View>
   );
 }
 
-/** One row per dish + meal; dining halls merged into a single list. */
+function MealSun() {
+  return (
+    <View style={styles.sun}>
+      <View style={styles.sunCore} />
+    </View>
+  );
+}
+
 function groupMatchesByFood(matches: FavoriteMatch[]): GroupedMatch[] {
   const map = new Map<string, GroupedMatch>();
 
@@ -131,6 +145,7 @@ function groupMatchesByFood(matches: FavoriteMatch[]): GroupedMatch[] {
 }
 
 export default function HomeScreen() {
+  const insets = useSafeAreaInsets();
   const [dates, setDates] = useState<string[]>([]);
   const [selectedDate, setSelectedDate] = useState(todayIso());
   const [matches, setMatches] = useState<FavoriteMatch[]>([]);
@@ -140,6 +155,7 @@ export default function HomeScreen() {
   const [loading, setLoading] = useState(true);
 
   const groupedMatches = useMemo(() => groupMatchesByFood(matches), [matches]);
+  const selectedLabel = formatDateLabel(selectedDate);
 
   const mealSections = useMemo(() => {
     const byRank = new Map<number, { title: string; data: GroupedMatch[] }>();
@@ -268,21 +284,50 @@ export default function HomeScreen() {
     setSelectedDate(next);
   }
 
+  const headlineDay = selectedLabel.isToday ? "Today" : selectedLabel.weekday;
+
   return (
-    <View style={styles.container}>
-      <View style={styles.topBar}>
-        <View>
-          <Text style={styles.kicker}>Menu week</Text>
-          <Text style={styles.headline}>{formatSelectedHeadline(selectedDate)}</Text>
+    <View
+      style={[
+        styles.container,
+        { paddingTop: Math.max(insets.top, 8), paddingBottom: Math.max(insets.bottom, 16) },
+      ]}
+    >
+      <View style={styles.navBar}>
+        <View style={styles.navSide}>
+          <PressableScale
+            style={styles.navIconBtn}
+            onPress={() => router.push("/settings")}
+            hitSlop={8}
+          >
+            <View style={styles.hamburger}>
+              <View style={styles.hamburgerLine} />
+              <View style={styles.hamburgerLine} />
+              <View style={styles.hamburgerLine} />
+            </View>
+          </PressableScale>
         </View>
-        <View style={styles.topLinks}>
-          <Link href="/settings" style={styles.link}>
-            Settings
-          </Link>
-          <Link href="/favorites/setup" style={styles.link}>
-            Edit favorites
-          </Link>
+        <Text style={styles.brand} pointerEvents="none">
+          CalBite
+        </Text>
+        <View style={[styles.navSide, styles.navSideRight]}>
+          <PressableScale
+            onPress={() => router.push("/favorites/setup")}
+            hitSlop={8}
+            style={styles.editFavoritesBtn}
+          >
+            <Text style={styles.editFavoritesText}>Edit favorites</Text>
+          </PressableScale>
         </View>
+      </View>
+
+      <Text style={styles.kicker}>Menu week</Text>
+      <View style={styles.headlineRow}>
+        <Text style={styles.headline}>{headlineDay}</Text>
+        <View style={styles.headlineDot} />
+        <Text style={styles.headline}>
+          {selectedLabel.month} {selectedLabel.day}
+        </Text>
       </View>
 
       <FlatList
@@ -298,7 +343,6 @@ export default function HomeScreen() {
           const favoriteCount = favoriteCounts[item] ?? 0;
           return (
             <PressableScale
-              selected={active}
               style={[
                 styles.dateChip,
                 active && styles.dateChipActive,
@@ -309,20 +353,15 @@ export default function HomeScreen() {
               <Text
                 style={[
                   styles.dateWeekday,
-                  active && styles.dateTextActive,
+                  active && styles.dateWeekdayActive,
                 ]}
               >
                 {weekday}
               </Text>
-              <Text
-                style={[
-                  styles.dateDay,
-                  active && styles.dateTextActive,
-                ]}
-              >
+              <Text style={[styles.dateDay, active && styles.dateDayActive]}>
                 {day}
               </Text>
-              <FavoriteDots count={favoriteCount} active={active} />
+              <FavoriteCountBadge count={favoriteCount} active={active} />
             </PressableScale>
           );
         }}
@@ -330,15 +369,10 @@ export default function HomeScreen() {
 
       <View style={styles.sectionHeader}>
         <Text style={styles.sectionTitle}>Favorites today</Text>
-        {!loading ? (
-          <Text style={styles.count}>
-            {groupedMatches.length} dish{groupedMatches.length === 1 ? "" : "es"}
-          </Text>
-        ) : null}
       </View>
 
       {loading ? (
-        <ActivityIndicator color={color.ink} style={{ marginTop: 24 }} />
+        <HomeFavoritesSkeleton />
       ) : mealSections.length ? (
         <SectionList
           sections={mealSections}
@@ -347,6 +381,7 @@ export default function HomeScreen() {
           stickySectionHeadersEnabled={false}
           renderSectionHeader={({ section }) => (
             <View style={styles.mealDivider}>
+              <MealSun />
               <Text style={styles.mealDividerText}>{section.title}</Text>
               <View style={styles.mealDividerLine} />
             </View>
@@ -365,15 +400,18 @@ export default function HomeScreen() {
                 })
               }
             >
-              <Text style={styles.foodName} numberOfLines={1}>
-                {item.food_name}
-              </Text>
-              <View style={styles.matchBottom}>
+              <View style={styles.dishIcon}>
+                <Text style={styles.dishGlyph}>{dishGlyph(item.food_name)}</Text>
+              </View>
+              <View style={styles.matchCopy}>
+                <Text style={styles.foodName} numberOfLines={1}>
+                  {item.food_name}
+                </Text>
                 <Text style={styles.halls} numberOfLines={1}>
                   {item.locations.join(" · ")}
                 </Text>
-                <Text style={styles.rowMark}>›</Text>
               </View>
+              <Text style={styles.rowMark}>›</Text>
             </PressableScale>
           )}
         />
@@ -398,47 +436,108 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: color.background,
     paddingHorizontal: 16,
-    paddingTop: 12,
+    paddingTop: 8,
     paddingBottom: 16,
   },
-  topBar: {
+  navBar: {
     flexDirection: "row",
+    alignItems: "center",
     justifyContent: "space-between",
-    alignItems: "flex-start",
-    marginBottom: 14,
+    marginBottom: 18,
+    minHeight: 40,
+    position: "relative",
+  },
+  navSide: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  navSideRight: {
+    justifyContent: "flex-end",
+  },
+  navIconBtn: {
+    width: 40,
+    height: 40,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  hamburger: {
+    gap: 5,
+    width: 22,
+  },
+  hamburgerLine: {
+    height: 2,
+    borderRadius: 1,
+    backgroundColor: color.ink,
+  },
+  brand: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    textAlign: "center",
+    fontFamily: serif,
+    fontSize: 28,
+    fontWeight: "700",
+    color: color.ink,
+    letterSpacing: 0.2,
+  },
+  editFavoritesBtn: {
+    paddingVertical: 8,
+    paddingHorizontal: 4,
+  },
+  editFavoritesText: {
+    fontSize: 13,
+    fontWeight: "600",
+    color: color.ink,
+    textAlign: "right",
   },
   kicker: {
     ...type.kicker,
-    marginBottom: 2,
+    marginBottom: 6,
   },
-  headline: type.title,
-  topLinks: {
-    alignItems: "flex-end",
-    gap: 8,
-    paddingTop: 4,
+  headlineRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    marginBottom: 16,
   },
-  link: {
+  headline: {
+    fontFamily: serif,
+    fontSize: 28,
+    fontWeight: "700",
     color: color.ink,
-    fontWeight: "600",
+  },
+  headlineDot: {
+    width: 7,
+    height: 7,
+    borderRadius: 4,
+    backgroundColor: color.accent,
   },
   dateList: {
     flexGrow: 0,
-    marginBottom: 18,
+    marginBottom: 20,
+    minHeight: 108,
   },
   dateListContent: {
-    gap: 8,
+    gap: 10,
     alignItems: "center",
-    paddingVertical: 8,
+    paddingVertical: 10,
+    paddingHorizontal: 2,
   },
   dateChip: {
-    width: 52,
-    paddingTop: 10,
-    paddingBottom: 8,
-    borderRadius: radius.lg,
+    width: 58,
+    paddingTop: 12,
+    paddingBottom: 10,
+    borderRadius: 18,
     backgroundColor: color.card,
-    borderWidth: 1,
+    borderWidth: 1.5,
     borderColor: color.hairline,
     alignItems: "center",
+    shadowColor: "#003262",
+    shadowOpacity: 0.06,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 2,
   },
   dateChipToday: {
     borderColor: color.accent,
@@ -449,64 +548,85 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   dateWeekday: {
-    ...type.caption,
+    fontSize: 12,
+    fontWeight: "600",
+    color: color.muted,
     marginBottom: 4,
   },
-  dateDay: {
-    fontSize: 18,
-    fontWeight: "700",
-    color: color.reading,
+  dateWeekdayActive: {
+    color: color.accent,
   },
-  dateTextActive: {
+  dateDay: {
+    fontFamily: serif,
+    fontSize: 22,
+    fontWeight: "700",
+    color: color.ink,
+    marginBottom: 8,
+  },
+  dateDayActive: {
     color: color.onInk,
   },
-  dotsRow: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "center",
+  countBadge: {
+    minWidth: 22,
+    height: 22,
+    paddingHorizontal: 4,
+    borderRadius: 11,
+    backgroundColor: "#F3EFE6",
     alignItems: "center",
-    gap: 2,
-    marginTop: 5,
-    minHeight: 6,
-    maxWidth: 40,
+    justifyContent: "center",
   },
-  dotsRowSpacer: {
-    height: 6,
-    marginTop: 5,
-  },
-  favoriteDot: {
-    width: 4,
-    height: 4,
-    borderRadius: 2,
+  countBadgeActive: {
     backgroundColor: color.accent,
   },
-  favoriteDotActive: {
-    backgroundColor: color.accent,
+  countBadgeText: {
+    fontSize: 10,
+    fontWeight: "700",
+    color: color.ink,
+  },
+  countBadgeTextActive: {
+    color: color.ink,
+  },
+  countBadgeSpacer: {
+    width: 22,
+    height: 22,
   },
   sectionHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "baseline",
-    marginBottom: 10,
+    marginBottom: 12,
   },
-  sectionTitle: type.section,
-  count: type.meta,
+  sectionTitle: {
+    fontFamily: serif,
+    fontSize: 26,
+    fontWeight: "700",
+    color: color.ink,
+  },
   matchList: {
     paddingBottom: 8,
   },
   mealDivider: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 10,
-    marginTop: 4,
-    marginBottom: 6,
+    gap: 8,
+    marginTop: 8,
+    marginBottom: 10,
+  },
+  sun: {
+    width: 14,
+    height: 14,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  sunCore: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: color.accent,
   },
   mealDividerText: {
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: "700",
     color: color.ink,
     textTransform: "uppercase",
-    letterSpacing: 0.4,
+    letterSpacing: 0.6,
   },
   mealDividerLine: {
     flex: 1,
@@ -514,36 +634,52 @@ const styles = StyleSheet.create({
     backgroundColor: color.hairline,
   },
   matchCard: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
     backgroundColor: color.card,
-    borderRadius: radius.sm,
+    borderRadius: 18,
     paddingHorizontal: 12,
-    paddingVertical: 8,
-    marginBottom: 6,
+    paddingVertical: 12,
+    marginBottom: 10,
     borderWidth: 1,
     borderColor: color.hairline,
+    shadowColor: "#003262",
+    shadowOpacity: 0.07,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 3 },
+    elevation: 2,
+  },
+  dishIcon: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: color.inset,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  dishGlyph: {
+    fontSize: 20,
+  },
+  matchCopy: {
+    flex: 1,
+    gap: 3,
   },
   foodName: {
-    fontSize: 15,
+    fontFamily: serifBold,
+    fontSize: 16,
     fontWeight: "700",
-    color: color.reading,
-  },
-  matchBottom: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    gap: 8,
-    marginTop: 2,
+    color: color.ink,
   },
   halls: {
-    flex: 1,
     color: color.muted,
     fontSize: 12,
   },
   rowMark: {
-    fontSize: 16,
-    fontWeight: "400",
-    color: color.accent,
-    lineHeight: 18,
+    fontSize: 22,
+    fontWeight: "300",
+    color: color.faint,
+    paddingHorizontal: 4,
   },
   empty: {
     color: color.muted,
@@ -552,6 +688,7 @@ const styles = StyleSheet.create({
   },
   menuButtonWrap: {
     marginTop: "auto",
+    paddingTop: 12,
   },
   menuButton: {
     backgroundColor: color.accent,

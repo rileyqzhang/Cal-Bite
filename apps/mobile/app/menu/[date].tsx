@@ -12,7 +12,7 @@ import { router, useLocalSearchParams } from "expo-router";
 import type { MenuOutput } from "@berkeley-dining/shared";
 import { PressableScale } from "@/components/PressableScale";
 import { apiFetch } from "@/lib/supabase";
-import { color, radius, type } from "@/lib/theme";
+import { color, radius, serifBold, type } from "@/lib/theme";
 
 type DropdownProps = {
   label: string;
@@ -214,9 +214,9 @@ export default function MenuScreen() {
                 <Text style={styles.categoryName}>{category.name}</Text>
                 <View style={styles.mealDividerLine} />
               </View>
-              {category.items.map((item) => (
+              {category.items.map((item, index) => (
                 <PressableScale
-                  key={`${item.id}-${item.menu_id}-${item.name}`}
+                  key={`${selectedMeal.period}-${category.name}-${item.id}-${index}`}
                   style={styles.itemRow}
                   onPress={() =>
                     router.push({
@@ -365,8 +365,9 @@ const styles = StyleSheet.create({
   },
   itemName: {
     flex: 1,
+    fontFamily: serifBold,
     fontSize: 15,
-    fontWeight: "600",
+    fontWeight: "700",
     color: color.reading,
     paddingRight: 8,
   },

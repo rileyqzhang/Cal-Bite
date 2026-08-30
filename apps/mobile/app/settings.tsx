@@ -7,7 +7,8 @@ import {
   Text,
   View,
 } from "react-native";
-import { router } from "expo-router";
+import { router, Stack } from "expo-router";
+import { HeaderBackButton } from "@react-navigation/elements";
 import { PressableScale } from "@/components/PressableScale";
 import {
   disableMorningNotifications,
@@ -19,6 +20,14 @@ import {
 import { unregisterPushNotifications } from "@/lib/notifications";
 import { supabase } from "@/lib/supabase";
 import { color, radius, type } from "@/lib/theme";
+
+function goBackHome() {
+  if (router.canGoBack()) {
+    router.back();
+    return;
+  }
+  router.replace("/(tabs)/home");
+}
 
 export default function SettingsScreen() {
   const [loading, setLoading] = useState(true);
@@ -94,12 +103,25 @@ export default function SettingsScreen() {
       await unregisterPushNotifications(token).catch(() => undefined);
     }
     await supabase.auth.signOut();
-    router.replace("/(auth)/signup");
+    router.replace("/(auth)/signin");
   }
 
   if (loading) {
     return (
       <View style={styles.centered}>
+        <Stack.Screen
+          options={{
+            title: "Settings",
+            headerBackButtonDisplayMode: "minimal",
+            headerLeft: () => (
+              <HeaderBackButton
+                displayMode="minimal"
+                tintColor={color.onInk}
+                onPress={goBackHome}
+              />
+            ),
+          }}
+        />
         <ActivityIndicator size="large" color={color.ink} />
       </View>
     );
@@ -107,6 +129,19 @@ export default function SettingsScreen() {
 
   return (
     <View style={styles.container}>
+      <Stack.Screen
+        options={{
+          title: "Settings",
+          headerBackButtonDisplayMode: "minimal",
+          headerLeft: () => (
+            <HeaderBackButton
+              displayMode="minimal"
+              tintColor={color.onInk}
+              onPress={goBackHome}
+            />
+          ),
+        }}
+      />
       <Text style={styles.kicker}>Alerts</Text>
       <Text style={styles.headline}>Morning notification</Text>
       <Text style={styles.help}>

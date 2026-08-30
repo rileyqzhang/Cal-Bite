@@ -8,12 +8,22 @@ import {
   TextInput,
   View,
 } from "react-native";
+import { router, Stack } from "expo-router";
+import { HeaderBackButton } from "@react-navigation/elements";
 import type { FavoriteFood } from "@berkeley-dining/shared";
 import { normalizeFoodName } from "@berkeley-dining/shared";
 import { PressableScale } from "@/components/PressableScale";
 import { maybeOfferNotificationsAfterFirstFavorite } from "@/lib/notification-settings";
 import { apiFetch, supabase } from "@/lib/supabase";
-import { color, radius, type } from "@/lib/theme";
+import { color, radius, serifBold, type } from "@/lib/theme";
+
+function goBackHome() {
+  if (router.canGoBack()) {
+    router.back();
+    return;
+  }
+  router.replace("/(tabs)/home");
+}
 
 function filterFoodNames(foods: string[], query: string): string[] {
   const q = normalizeFoodName(query);
@@ -149,6 +159,19 @@ export default function FavoritesSetupScreen() {
 
   return (
     <View style={styles.container}>
+      <Stack.Screen
+        options={{
+          title: "Favorite Foods",
+          headerBackButtonDisplayMode: "minimal",
+          headerLeft: () => (
+            <HeaderBackButton
+              displayMode="minimal"
+              tintColor={color.onInk}
+              onPress={goBackHome}
+            />
+          ),
+        }}
+      />
       <Text style={styles.kicker}>Track dishes</Text>
       <Text style={styles.headline}>Add favorites</Text>
       <Text style={styles.help}>
@@ -338,8 +361,9 @@ const styles = StyleSheet.create({
   },
   rowName: {
     flex: 1,
+    fontFamily: serifBold,
     fontSize: 15,
-    fontWeight: "600",
+    fontWeight: "700",
     color: color.reading,
   },
   accentPill: {
@@ -358,6 +382,7 @@ const styles = StyleSheet.create({
   },
   favoriteName: {
     flex: 1,
+    fontFamily: serifBold,
     fontSize: 15,
     fontWeight: "700",
     color: color.reading,

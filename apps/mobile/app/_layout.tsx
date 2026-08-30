@@ -1,10 +1,8 @@
 import { Stack, router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { useEffect, useState } from "react";
-import { ActivityIndicator, View } from "react-native";
-import { Session } from "@supabase/supabase-js";
+import { useEffect } from "react";
+import { Platform } from "react-native";
 import * as Notifications from "expo-notifications";
-import { supabase } from "@/lib/supabase";
 import { chrome, color, enableLayoutMotion } from "@/lib/theme";
 
 enableLayoutMotion();
@@ -23,17 +21,10 @@ function isDailyDigest(data: unknown): boolean {
 }
 
 export default function RootLayout() {
-  const [session, setSession] = useState<Session | null | undefined>(undefined);
-
+  // Push response APIs are native-only; calling them on web throws.
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => setSession(data.session));
-    const { data: listener } = supabase.auth.onAuthStateChange((_event, next) => {
-      setSession(next);
-    });
-    return () => listener.subscription.unsubscribe();
-  }, []);
+    if (Platform.OS === "web") return;
 
-  useEffect(() => {
     const subscription = Notifications.addNotificationResponseReceivedListener(
       (response) => {
         if (isDailyDigest(response.notification.request.content.data)) {
@@ -54,22 +45,6 @@ export default function RootLayout() {
     return () => subscription.remove();
   }, []);
 
-  if (session === undefined) {
-    return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: color.background,
-        }}
-      >
-        <StatusBar style="dark" />
-        <ActivityIndicator size="large" color={color.ink} />
-      </View>
-    );
-  }
-
   return (
     <>
       <StatusBar style="light" />
@@ -78,16 +53,49 @@ export default function RootLayout() {
           headerStyle: chrome.headerStyle,
           headerTintColor: chrome.headerTintColor,
           headerShadowVisible: false,
+          headerBackTitleVisible: false,
+          headerBackButtonDisplayMode: "minimal",
+          animation: "slide_from_right",
           contentStyle: { backgroundColor: color.background },
         }}
       >
         <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="(auth)/signup" options={{ title: "Sign In" }} />
-        <Stack.Screen name="(tabs)/home" options={{ title: "Berkeley Dining" }} />
-        <Stack.Screen name="menu/[date]" options={{ title: "Full Menu" }} />
-        <Stack.Screen name="food/[date]/[itemId]" options={{ title: "Food" }} />
-        <Stack.Screen name="favorites/setup" options={{ title: "Favorite Foods" }} />
-        <Stack.Screen name="settings" options={{ title: "Settings" }} />
+        <Stack.Screen name="(auth)/signin" options={{ headerShown: false }} />
+        <Stack.Screen name="(auth)/signup" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="(tabs)/home"
+          options={{ headerShown: false, title: "CalBite" }}
+        />
+        <Stack.Screen
+          name="menu/[date]"
+          options={{
+            title: "CalBite",
+            headerBackButtonDisplayMode: "minimal",
+          }}
+        />
+        <Stack.Screen
+          name="food/[date]/[itemId]"
+          options={{
+            title: "CalBite",
+            headerTitleStyle: { fontWeight: "700" },
+            headerBackButtonDisplayMode: "minimal",
+            animation: "slide_from_right",
+          }}
+        />
+        <Stack.Screen
+          name="favorites/setup"
+          options={{
+            title: "Favorite Foods",
+            headerBackButtonDisplayMode: "minimal",
+          }}
+        />
+        <Stack.Screen
+          name="settings"
+          options={{
+            title: "Settings",
+            headerBackButtonDisplayMode: "minimal",
+          }}
+        />
       </Stack>
     </>
   );

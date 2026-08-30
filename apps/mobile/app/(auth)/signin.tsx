@@ -24,18 +24,16 @@ function showMessage(title: string, message: string) {
   Alert.alert(title, message);
 }
 
-export default function SignupScreen() {
+export default function SignInScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [statusMessage, setStatusMessage] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(
     getSupabaseConfigError(),
   );
 
-  async function handleCreateAccount() {
+  async function handleSignIn() {
     setLoading(true);
-    setStatusMessage(null);
     setErrorMessage(getSupabaseConfigError());
 
     const configError = getSupabaseConfigError();
@@ -51,33 +49,23 @@ export default function SignupScreen() {
       setLoading(false);
       return;
     }
-    if (password.length < 6) {
-      setErrorMessage("Password must be at least 6 characters.");
-      setLoading(false);
-      return;
-    }
 
     try {
-      const { data, error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email: trimmedEmail,
         password,
       });
       if (error) throw error;
-
-      if (data.session) {
-        router.replace("/(tabs)/home");
-        return;
+      if (!data.session) {
+        throw new Error("Sign in succeeded but no session was returned.");
       }
-
-      setStatusMessage(
-        "Account created. If email confirmation is enabled, check your inbox, then sign in.",
-      );
+      router.replace("/(tabs)/home");
     } catch (error) {
       const message =
         error instanceof Error ? error.message : "Unknown authentication error";
       const friendly = explainAuthNetworkError(message);
       setErrorMessage(friendly);
-      showMessage("Create account failed", friendly);
+      showMessage("Sign in failed", friendly);
     } finally {
       setLoading(false);
     }
@@ -85,10 +73,8 @@ export default function SignupScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Create account</Text>
-      <Text style={styles.subtitle}>
-        Set up an email and password to track your favorite foods
-      </Text>
+      <Text style={styles.title}>Cal Bite</Text>
+      <Text style={styles.subtitle}>Sign in to track your favorite foods</Text>
       <TextInput
         style={styles.input}
         autoCapitalize="none"
@@ -101,24 +87,21 @@ export default function SignupScreen() {
       <TextInput
         style={styles.input}
         secureTextEntry
-        placeholder="Password (min 6 characters)"
+        placeholder="Password"
         placeholderTextColor={color.faint}
         value={password}
         onChangeText={setPassword}
       />
       {errorMessage ? <Text style={styles.status}>{errorMessage}</Text> : null}
-      {statusMessage ? <Text style={styles.status}>{statusMessage}</Text> : null}
       <PressableScale
         style={styles.button}
-        onPress={handleCreateAccount}
+        onPress={handleSignIn}
         disabled={loading}
       >
-        <Text style={styles.buttonText}>
-          {loading ? "…" : "Create Account"}
-        </Text>
+        <Text style={styles.buttonText}>{loading ? "…" : "Sign In"}</Text>
       </PressableScale>
-      <Link href="/(auth)/signin" style={styles.link}>
-        Already have an account? Sign in
+      <Link href="/(auth)/signup" style={styles.link}>
+        Create an account
       </Link>
     </View>
   );
