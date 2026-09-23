@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 import { router, Stack } from "expo-router";
-import { HeaderBackButton } from "@react-navigation/elements";
+import { HeaderBackButton } from "expo-router/react-navigation";
 import { PressableScale } from "@/components/PressableScale";
 import {
   disableMorningNotifications,

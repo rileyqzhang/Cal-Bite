@@ -19,10 +19,12 @@
           "color": "#003262",
           "defaultChannel": "daily-favorites"
         }
-      ]
+      ],
+      "expo-splash-screen",
+      "expo-status-bar"
     ],
     "experiments": {
-      "typedRoutes": true
+      "typedRoutes": false
     },
     "ios": {
       "bundleIdentifier": "com.rileyqzhang.calbiteapp",

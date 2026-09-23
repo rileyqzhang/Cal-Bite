@@ -9,7 +9,7 @@ import {
   View,
 } from "react-native";
 import { router, Stack } from "expo-router";
-import { HeaderBackButton } from "@react-navigation/elements";
+import { HeaderBackButton } from "expo-router/react-navigation";
 import type { FavoriteFood } from "@berkeley-dining/shared";
 import { normalizeFoodName } from "@berkeley-dining/shared";
 import { PressableScale } from "@/components/PressableScale";
