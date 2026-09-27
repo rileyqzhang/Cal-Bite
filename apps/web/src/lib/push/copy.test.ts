@@ -36,43 +36,29 @@ test("shortMealLabel uses the last period segment", () => {
   assert.equal(shortMealLabel("Lunch"), "Lunch");
 });
 
-test("one favorite includes hall and meal", () => {
+test("one favorite uses singular count copy", () => {
   assert.deepEqual(buildDailyDigestCopy([match()], "favorites_only"), {
-    title: "Orange Chicken is on the menu",
-    body: "Crossroads · Lunch. Decide if you’re going.",
+    title: "Favorites today",
+    body: "Good morning! You have 1 favorite food today 🍳",
     matchCount: 1,
   });
 });
 
-test("one favorite falls back when hall and meal are missing", () => {
-  assert.deepEqual(
-    buildDailyDigestCopy(
-      [match({ location_name: "", meal_period: "" })],
-      "always",
-    ),
-    {
-      title: "Orange Chicken is on the menu",
-      body: "Decide if you’re going.",
-      matchCount: 1,
-    },
-  );
-});
-
-test("two favorites name both foods", () => {
+test("two favorites use plural count copy", () => {
   assert.deepEqual(
     buildDailyDigestCopy(
       [match(), match({ food_name: "Potato Wedges" })],
       "favorites_only",
     ),
     {
-      title: "2 favorites today",
-      body: "Orange Chicken and Potato Wedges. Plan your meal before you go.",
+      title: "Favorites today",
+      body: "Good morning! You have 2 favorite foods today 🍳",
       matchCount: 2,
     },
   );
 });
 
-test("three favorites list all names", () => {
+test("three favorites use plural count copy", () => {
   assert.deepEqual(
     buildDailyDigestCopy(
       [
@@ -83,38 +69,35 @@ test("three favorites list all names", () => {
       "favorites_only",
     ),
     {
-      title: "3 favorites today",
-      body: "Orange Chicken, Potato Wedges, and Scrambled Eggs. Plan your meal before you go.",
+      title: "Favorites today",
+      body: "Good morning! You have 3 favorite foods today 🍳",
       matchCount: 3,
     },
   );
 });
 
-test("four or more favorites name only the first", () => {
+test("duplicate names across halls count once", () => {
   assert.deepEqual(
     buildDailyDigestCopy(
       [
         match(),
+        match({ food_name: "orange chicken", location_name: "Cafe 3" }),
         match({ food_name: "Potato Wedges" }),
-        match({ food_name: "Scrambled Eggs" }),
-        match({ food_name: "Mung Bean Patty" }),
-        match({ food_name: "Roasted Broccoli" }),
-        match({ food_name: "Turkey Sausage Patty" }),
       ],
       "favorites_only",
     ),
     {
-      title: "6 favorites today",
-      body: "Including Orange Chicken. Plan your meal before you go.",
-      matchCount: 6,
+      title: "Favorites today",
+      body: "Good morning! You have 2 favorite foods today 🍳",
+      matchCount: 2,
     },
   );
 });
 
-test("always mode sends a menu teaser when there are no matches", () => {
+test("always mode sends zero-favorites morning copy", () => {
   assert.deepEqual(buildDailyDigestCopy([], "always"), {
-    title: "Today’s menu is up",
-    body: "See what’s being served and decide if you’re going.",
+    title: "CalBite",
+    body: "Good morning! You don't have any favorite foods scheduled today.",
     matchCount: 0,
   });
 });
