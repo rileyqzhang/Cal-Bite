@@ -1,12 +1,13 @@
 # Berkeley Dining App
 
-Monorepo for scraping Berkeley Dining menus, serving them via a Next.js API on Vercel, and delivering a mobile app with favorite-food matching and 7:30 AM Pacific push notifications.
+Monorepo for scraping Berkeley Dining menus, serving them via a Next.js API on Vercel (Hobby is fine), and delivering a mobile app with favorite-food matching and 7:30 AM Pacific push notifications.
 
 ## Project layout
 
 ```
 scraper/                 Python scraper (local dev + validation)
-apps/web/                Next.js API + Vercel cron
+apps/web/                Next.js API + cron jobs
+.github/workflows/       GitHub Actions schedule for the cron jobs
 apps/mobile/             Expo React Native app
 packages/shared/         Shared TypeScript types/helpers
 supabase/migrations/     Postgres schema + Storage policies
@@ -54,13 +55,32 @@ Set these env vars in Vercel:
 |----------|---------|
 | `SUPABASE_URL` | Supabase project URL |
 | `SUPABASE_ANON_KEY` | Public anon key |
-| `SUPABASE_SERVICE_ROLE_KEY` | Cron uploads + push fan-out |
-| `CRON_SECRET` | Protect `/api/cron/daily` and `/api/cron/notify` |
-| `EXPO_ACCESS_TOKEN` | Optional Expo push auth |
+| `SUPABASE_SERVICE_ROLE_KEY` | Server-side reads/writes |
+| `CRON_SECRET` | Protect `/api/cron/daily` and `/api/cron/notify` (manual triggers) |
 
 Deploy with root directory `apps/web` or configure Vercel monorepo settings accordingly.
 
-Cron schedules are in [`apps/web/vercel.json`](apps/web/vercel.json): scrape around 6:00 AM Pacific, notify at 7:30 AM Pacific (DST-safe dual ticks).
+### Daily jobs (GitHub Actions — no Vercel Pro needed)
+
+[`.github/workflows/cron.yml`](.github/workflows/cron.yml) runs the jobs directly against Supabase, so they don't depend on Vercel Cron or function time limits:
+
+- **Scrape** at 13:17 UTC (6:17 AM PDT / 5:17 AM PST): today + future menus → Supabase Storage.
+- **Notify** at 7:30 AM Pacific: ticks every 10 min (14:00–17:50 UTC) and sends on the first tick between 7:25 and 9:59 AM Pacific, all year. GitHub schedules often start late; `notification_sends` keeps it to one digest per user per day.
+
+Setup (works on a fork too):
+
+1. Repo → **Settings → Secrets and variables → Actions** → add `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, and optionally `EXPO_ACCESS_TOKEN`.
+2. On a fork, open the **Actions** tab and enable workflows (forks start disabled).
+3. **Actions → Daily cron → Run workflow** with `job: daily` to scrape once and check it works.
+
+GitHub pauses scheduled workflows in public repos after 60 days with no commits; re-enable from the Actions tab if that happens.
+
+Run the same jobs locally (reads `apps/web/.env.local`, Node 22.9+):
+
+```bash
+npm run cron:daily --workspace @berkeley-dining/web
+npm run cron:notify --workspace @berkeley-dining/web -- --force
+```
 
 ### API routes
 
@@ -115,5 +135,5 @@ Set:
 ## Notes
 
 - The site only publishes about 8 days of menus (yesterday through ~6 days ahead). The cron refreshes **today + future** dates each morning.
-- Vercel Cron and long-running scrapes may require a Pro plan (`maxDuration = 300` on the cron route).
-- Mac sleep / local cron is no longer required; Vercel + Supabase run in the cloud.
+- The daily jobs run on GitHub Actions, so Vercel Hobby is enough for the API. (On Vercel Hobby, Vercel Cron can fire up to 59 min late, which misses the 7:30 notify window, and a full scrape takes ~3 min against the 300 s function cap.)
+- Mac sleep / local cron is no longer required; GitHub Actions + Vercel + Supabase run in the cloud.

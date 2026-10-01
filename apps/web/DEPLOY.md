@@ -1,17 +1,17 @@
-# Deploy backend to Vercel (daily scraper)
+# Deploy backend to Vercel + GitHub Actions
 
-Host the Next.js API on Vercel so `/api/cron/daily` runs every morning without your laptop.
+Host the Next.js API on Vercel (Hobby works) and run the daily scrape + 7:30 AM push from GitHub Actions, so nothing depends on your laptop or Vercel Pro.
 
 ## Architecture
 
 ```
-Vercel Cron (~6 AM Pacific)
-    → GET /api/cron/daily
+GitHub Actions (6:17 AM PDT / 5:17 AM PST)
+    → npm run cron:daily
     → scrape Berkeley Dining (today + future dates)
     → upload JSON to Supabase Storage
 
-Vercel Cron (7:30 AM Pacific)
-    → GET /api/cron/notify
+GitHub Actions (7:30 AM Pacific)
+    → npm run cron:notify
     → match opted-in users and send Expo push digests
 
 Mobile / web app
@@ -78,11 +78,18 @@ Optional for push notifications:
 
 Copy values from `apps/web/.env.local`.
 
-## Step 4: Cron schedule
+## Step 4: Cron schedule (GitHub Actions)
 
-[`vercel.json`](vercel.json) scrapes at **13:00 UTC** (~6 AM Pacific) and notifies at **14:30 and 15:30 UTC**. The notify job only sends when it is 7:30 AM in `America/Los_Angeles`.
+[`.github/workflows/cron.yml`](../../.github/workflows/cron.yml) scrapes at **13:17 UTC** (6:17 AM PDT / 5:17 AM PST) and ticks notify every 10 min from **14:00–17:50 UTC**. Notify sends on the first tick between 7:25 and 9:59 AM `America/Los_Angeles` (PDT and PST) and dedupes through `notification_sends`, so late GitHub schedules still deliver once.
 
-**Note:** Vercel Cron requires **Pro plan** on many accounts. Hobby has limited cron. The scrape route uses `maxDuration = 300` (5 min), which also needs Pro.
+1. GitHub repo → **Settings → Secrets and variables → Actions** → New repository secret:
+   - `SUPABASE_URL`
+   - `SUPABASE_SERVICE_ROLE_KEY`
+   - `EXPO_ACCESS_TOKEN` (optional)
+2. Forks: enable workflows in the **Actions** tab.
+3. **Actions → Daily cron → Run workflow** (`job: daily`) to test. Use `job: notify` + `force` to run the digest outside the 7:30 window (users already sent today are still skipped).
+
+No Vercel Cron is configured. On Vercel Pro you can still hit the `/api/cron/*` routes with `Authorization: Bearer $CRON_SECRET` (or re-add a `crons` block in `vercel.json`); don't also schedule them while the Actions workflow is enabled — the two schedulers share no lock and overlapping notify runs can double-send. Pick one.
 
 ## Step 5: Deploy and test
 
@@ -100,8 +107,7 @@ Expect JSON like:
 ```json
 {
   "ok": true,
-  "scraped_dates": ["2026-08-11", "2026-08-12", ...],
-  "notifications": { "sent": 0, "failed": 0, "skipped": 0 }
+  "scraped_dates": ["2026-08-11", "2026-08-12", ...]
 }
 ```
 
@@ -132,20 +138,12 @@ Authentication → URL Configuration:
 
 ## Monitoring
 
-- Vercel → Project → **Cron Jobs** tab: see run history
-- Vercel → **Logs**: filter `/api/cron/daily`
+- GitHub → **Actions → Daily cron**: run history + JSON result for each job
 - Supabase → **Storage** → `menus` bucket: new JSON files each day
-
-## Alternatives to Vercel Cron
-
-If you stay on Vercel Hobby or scrape times out:
-
-1. **GitHub Actions** — daily workflow runs `curl` to `/api/cron/daily` or Python scraper + Supabase upload
-2. **Split cron** — one job scrapes, one sends notifications (two Vercel cron entries)
-3. **`seed-fast`** pattern — scrape without nutrition on cron, lazy-load nutrition later
 
 ## Cost snapshot (typical student app)
 
 - **Supabase** free tier: auth + DB + storage
-- **Vercel** Pro (~$20/mo): cron + 300s functions (check current pricing)
+- **Vercel** Hobby: API hosting
+- **GitHub Actions**: free for public repos (private repos: well within the free minutes)
 - **Expo** push: free tier usually sufficient

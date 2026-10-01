@@ -1,0 +1,82 @@
+name: Daily cron
+
+# Replaces Vercel Cron so the backend works on Vercel Hobby (or with no
+# Vercel at all for these jobs): Actions runs the scrape + push fan-out
+# directly against Supabase. GitHub cron is UTC and can start late, so notify
+# ticks every 10 minutes and the job sends on the first tick at/after
+# 7:25 AM Pacific; notification_sends keeps it to one digest per user per day.
+
+on:
+  schedule:
+    - cron: "17 13 * * *" # scrape: 6:17 AM PDT / 5:17 AM PST
+    - cron: "*/10 14-17 * * *" # notify ticks: 7:00–10:50 PDT / 6:00–9:50 PST
+  workflow_dispatch:
+    inputs:
+      job:
+        description: Which job to run
+        type: choice
+        options: [daily, notify]
+        default: daily
+      force:
+        description: "notify only: send even outside the 7:30 AM Pacific window"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  daily:
+    if: github.event.schedule == '17 13 * * *' || (github.event_name == 'workflow_dispatch' && inputs.job == 'daily')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    concurrency:
+      group: cron-daily
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --workspace @berkeley-dining/web --no-audit --no-fund
+      - name: Scrape menus and upload to Supabase
+        run: npm run cron:daily --workspace @berkeley-dining/web
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+  notify:
+    if: github.event.schedule == '*/10 14-17 * * *' || (github.event_name == 'workflow_dispatch' && inputs.job == 'notify')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: cron-notify
+      cancel-in-progress: false
+    steps:
+      # Cheap gate so ticks outside the window skip the install.
+      - name: Check 7:25–9:59 AM Pacific window
+        id: window
+        run: |
+          now=$(TZ=America/Los_Angeles date +%H%M)
+          if [ "${{ inputs.force }}" = "true" ] || { [ "$now" -ge 725 ] && [ "$now" -le 959 ]; }; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Outside window ($now Pacific); skipping."
+          fi
+      - if: steps.window.outputs.run == 'true'
+        uses: actions/checkout@v4
+      - if: steps.window.outputs.run == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - if: steps.window.outputs.run == 'true'
+        run: npm ci --workspace @berkeley-dining/web --no-audit --no-fund
+      - name: Send 7:30 AM digests
+        if: steps.window.outputs.run == 'true'
+        run: npm run cron:notify --workspace @berkeley-dining/web -- ${{ inputs.force && '--force' || '' }}
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          EXPO_ACCESS_TOKEN: ${{ secrets.EXPO_ACCESS_TOKEN }}
