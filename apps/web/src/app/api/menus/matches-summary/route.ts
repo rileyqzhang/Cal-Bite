@@ -5,7 +5,7 @@ import {
   findFavoriteMatches,
 } from "@/lib/favorites/match";
 import { downloadMenuJson } from "@/lib/supabase/server";
-import type { MenuOutput } from "@berkeley-dining/shared";
+import type { FavoriteMatch, MenuOutput } from "@berkeley-dining/shared";
 
 function parseDates(raw: string | null): string[] {
   if (!raw) return [];
@@ -61,12 +61,11 @@ export async function GET(request: NextRequest) {
   );
 
   const counts: Record<string, number> = {};
-  let detailMatches = detail ? [] : undefined;
+  let detailMatches: FavoriteMatch[] = [];
 
   for (const [date, menu] of menuResults) {
     if (!menu) {
       counts[date] = 0;
-      if (detail === date) detailMatches = [];
       continue;
     }
     const matches = findFavoriteMatches(menu, favoriteNames);
@@ -77,7 +76,7 @@ export async function GET(request: NextRequest) {
   return NextResponse.json({
     counts,
     detail: detail || null,
-    matches: detailMatches ?? [],
+    matches: detail ? detailMatches : [],
     favorite_count: favoriteNames.length,
   });
 }
