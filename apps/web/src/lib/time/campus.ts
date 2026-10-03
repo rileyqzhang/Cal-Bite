@@ -45,3 +45,13 @@ export function isCampusNotifyWindow(date: Date = new Date()): boolean {
   const { hour, minute } = clockInTimeZone(date);
   return hour === 7 && minute >= 25 && minute <= 40;
 }
+
+/**
+ * 7:25–9:59 AM Pacific. GitHub Actions schedules can start well after the
+ * cron time, so the Actions notify job ticks repeatedly and sends on the first
+ * tick inside this window; notification_sends dedupes the later ones.
+ */
+export function isCampusNotifyCatchUpWindow(date: Date = new Date()): boolean {
+  const { hour, minute } = clockInTimeZone(date);
+  return (hour === 7 && minute >= 25) || hour === 8 || hour === 9;
+}
