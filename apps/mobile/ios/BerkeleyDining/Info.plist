@@ -28,7 +28,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>berkeleydining</string>
-				<string>com.anonymous.berkeley-dining</string>
+				<string>com.calbite.app</string>
 			</array>
 		</dict>
 	</array>

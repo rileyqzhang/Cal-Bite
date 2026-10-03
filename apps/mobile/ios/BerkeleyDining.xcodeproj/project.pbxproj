@@ -28,6 +28,7 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BerkeleyDining/main.m; sourceTree = "<group>"; };
 		58EEBF8E8E6FB1BC6CAF49B5 /* libPods-BerkeleyDining.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BerkeleyDining.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C2E3173556A471DD304B334 /* Pods-BerkeleyDining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BerkeleyDining.debug.xcconfig"; path = "Target Support Files/Pods-BerkeleyDining/Pods-BerkeleyDining.debug.xcconfig"; sourceTree = "<group>"; };
+		6D14B97D3069B57C001F74AC /* BerkeleyDiningRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = BerkeleyDiningRelease.entitlements; path = BerkeleyDining/BerkeleyDiningRelease.entitlements; sourceTree = "<group>"; };
 		7A4D352CD337FB3A3BF06240 /* Pods-BerkeleyDining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BerkeleyDining.release.xcconfig"; path = "Target Support Files/Pods-BerkeleyDining/Pods-BerkeleyDining.release.xcconfig"; sourceTree = "<group>"; };
 		8B5C19DC397344D0BB48F5E1 /* BerkeleyDining-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "BerkeleyDining-Bridging-Header.h"; path = "BerkeleyDining/BerkeleyDining-Bridging-Header.h"; sourceTree = "<group>"; };
 		A7784B51CC74B586AEDE2276 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = BerkeleyDining/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -52,6 +53,7 @@
 		13B07FAE1A68108700A75B9A /* BerkeleyDining */ = {
 			isa = PBXGroup;
 			children = (
+				6D14B97D3069B57C001F74AC /* BerkeleyDiningRelease.entitlements */,
 				BB2F792B24A3F905000567C9 /* Supporting */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
@@ -353,8 +355,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BerkeleyDining/BerkeleyDining.entitlements;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SQQ63TBHW3;
+				DEVELOPMENT_TEAM = Q4TWDPZRPG;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -373,7 +376,7 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.anonymous.berkeley-dining";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.calbite.app";
 				PRODUCT_NAME = BerkeleyDining;
 				SWIFT_OBJC_BRIDGING_HEADER = "BerkeleyDining/BerkeleyDining-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -389,9 +392,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = BerkeleyDining/BerkeleyDining.entitlements;
+				CODE_SIGN_ENTITLEMENTS = BerkeleyDining/BerkeleyDiningRelease.entitlements;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SQQ63TBHW3;
+				DEVELOPMENT_TEAM = Q4TWDPZRPG;
 				INFOPLIST_FILE = BerkeleyDining/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -405,7 +409,7 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.anonymous.berkeley-dining";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.calbite.app";
 				PRODUCT_NAME = BerkeleyDining;
 				SWIFT_OBJC_BRIDGING_HEADER = "BerkeleyDining/BerkeleyDining-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -469,10 +473,7 @@
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -527,10 +528,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

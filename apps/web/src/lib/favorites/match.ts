@@ -39,3 +39,11 @@ export function findFavoriteMatches(
   return matches;
 }
 
+/** Unique food + meal-period groups — same counting as the home screen badges. */
+export function countGroupedFavoriteMatches(matches: FavoriteMatch[]): number {
+  const keys = new Set<string>();
+  for (const match of matches) {
+    keys.add(`${normalizeFoodName(match.food_name)}|${match.meal_period}`);
+  }
+  return keys.size;
+}
